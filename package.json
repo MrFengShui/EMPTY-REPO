@@ -1,0 +1,25 @@
+{
+	"name": "CS340_Final_Project",
+	"version": "1.0.0",
+	"description": "Dynamic content with Express and Handlebars",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "",
+		"prestart": "",
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MrFengShui/EMPTY-REPO.git"
+	},
+	"author": "Luan Songjian",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/MrFengShui/EMPTY-REPO/issues"
+	},
+	"homepage": "https://github.com/MrFengShui/EMPTY-REPO.git#README",
+	"dependencies": {
+		
+	}
+}
