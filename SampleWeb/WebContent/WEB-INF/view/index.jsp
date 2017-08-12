@@ -1,12 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="WEB-RES/css/index.css"/>
+<title>Index Page</title>
 </head>
 <body>
-<a href="test">Test Page</a>
+<section id="index_section">
+<h1>Sign In</h1>
+<div>
+	<form:form method="POST" action="index" commandName="indexBean">
+		<table>
+			<tr>
+				<td class="table_label">Username</td>
+				<td><form:input path="username"/></td>
+			</tr>
+			<tr>
+				<td class="table_label">Password</td>
+				<td><form:password name="password" path="password"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id="table_control"><input type="submit" value="Login"></td>
+			</tr>
+		</table>
+	</form:form>
+</div>
+</section>
 </body>
 </html>
