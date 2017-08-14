@@ -11,7 +11,7 @@ public class GeneralAction {
 
 	@RequestMapping("/")
 	public String initial() {
-		return "redirect:about";
+		return "redirect:index";
 	}
 	
 	@RequestMapping("/index")

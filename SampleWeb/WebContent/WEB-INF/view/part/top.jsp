@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body style="margin: 0 auto;">
-<ul>
-	<li id="top_list_left"><a href="about">About</a></li>
-	<li id="top_list_middle"><div class="top_dt_div">Current Date&Time: yyyy-mm-dd eee hh:mm:ss</div></li>
-	<li id="top_list_right"><a href="#">Welcome ${username}</a></li>
+<body>
+<ul id="main_top_list">
+	<li style="width: 10%;"><a href="about">About</a></li>
+	<li style="width: 70%;"><div class="top_dt_div">Current Date&Time: yyyy-mm-dd eee hh:mm:ss</div></li>
+	<li style="width: 20%;"><a href="#">Welcome ${username}</a></li>
 </ul>
 </body>
 </html>

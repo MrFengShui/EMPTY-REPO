@@ -1,6 +1,14 @@
 /**
  * http://usejsdoc.org/
  */
+function match_size() {
+	var main_div = document.getElementById('main_div');
+	console.log("hello");
+	if (main_div) {
+		main_div.style.width = 'calc(1000px - 250px)';
+	}
+}
+
 function show_date_time() {
 	var date = new Date();
 	var year = date.getFullYear();
@@ -11,7 +19,7 @@ function show_date_time() {
 	var minute = date.getMinutes();
 	var second = date.getSeconds();
 	var components = document.getElementsByClassName("top_dt_div");
-	
+	console.log("hello");
 	for (var i = 0; i < components.length; i++) {
 		components[i].innerHTML = "Current Date&Time: " + year + "-" + bitFormat(month) + "-" + bitFormat(day) + "\t" + weekFormat(week) + "\t" + bitFormat(hour) + ":" + bitFormat(minute) + ":" + bitFormat(second);
 	}
