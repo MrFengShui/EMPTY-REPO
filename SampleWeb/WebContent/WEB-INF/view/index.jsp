@@ -16,11 +16,11 @@
 		<form:form method="POST" action="index" commandName="indexBean">
 			<table id="index_form_table">
 				<tr>
-					<td class="index_table_label"><form:label path="">Username</form:label></td>
+					<td class="index_table_label">Username</td>
 					<td><form:input path="username"/></td>
 				</tr>
 				<tr>
-					<td class="index_table_label"><form:label path="">Password</form:label></td>
+					<td class="index_table_label">Password</td>
 					<td><form:password name="password" path="password"/></td>
 				</tr>
 				<tr>

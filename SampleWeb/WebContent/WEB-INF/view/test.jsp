@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="WEB-RES/css/test.css"/>
 <title>Test Page</title>
 </head>
 <body>

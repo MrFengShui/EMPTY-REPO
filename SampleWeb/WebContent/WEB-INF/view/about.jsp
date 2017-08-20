@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="WEB-RES/css/about.css"/>
+<link rel="stylesheet" type="text/css" href="WEB-RES/css/dark-style.css"/>
 <title>About Page</title>
 </head>
 <body style="overflow-x: hidden;">
@@ -27,7 +27,7 @@
 		<c:choose>
 			<c:when test="${order.index == 0}">
 				<tr>
-					<td rowspan="2 class="about_item_key"><c:out value="${rtbean.key}"/></td>
+					<td rowspan="2" class="about_item_key"><c:out value="${rtbean.key}"/></td>
 					<td class="about_item_value"><c:out value="${item}"/></td>
 				</tr>
 			</c:when>

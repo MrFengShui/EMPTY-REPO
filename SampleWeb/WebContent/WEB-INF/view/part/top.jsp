@@ -8,7 +8,7 @@
 <body>
 <ul id="main_top_list">
 	<li style="width: 10%;"><a href="about">About</a></li>
-	<li style="width: 70%;"><div class="top_dt_div">Current Date&Time: yyyy-mm-dd eee hh:mm:ss</div></li>
+	<li style="width: 70%;"><div class="top_dt_div"></div></li>
 	<li style="width: 20%;"><a href="#">Welcome ${username}</a></li>
 </ul>
 </body>

@@ -16,5 +16,6 @@
 	<div><jsp:include page="part/bottom.jsp"/></div>
 </div>
 </body>
+<script src="WEB-RES/js/execute.js" type="text/javascript"></script>
 <script src="WEB-RES/js/main.js" type="text/javascript" onload="show_date_time();"></script>
 </html>

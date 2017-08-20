@@ -1,8 +1,15 @@
 package pers.luan.web.action;
 
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import javax.xml.bind.DatatypeConverter;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import pers.luan.web.bean.IndexBean;
+import pers.luan.web.bean.MainListBean;
 import pers.luan.web.dao.LoginDAO;
 import pers.luan.web.db.SampleDB;
 
 @Controller
 public class LoginAction {
+	
+	private String name;
+	private List<String> list;
+	
+	private MainListBean bean;
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public ModelAndView getIndex(Model model) {
@@ -32,11 +45,15 @@ public class LoginAction {
 		
 		if (loginDAO.isValid(bean)) {
 			String value = bean.getUsername();
+			name = value;
 			
 			try {
+				DateFormat format = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
+				Date date = Calendar.getInstance(Locale.getDefault()).getTime();
+				value += " login at " + format.format(date);
 				MessageDigest md = MessageDigest.getInstance("MD5");
 				md.update(value.getBytes());
-				value = new BigInteger(1, md.digest()).toString(16);
+				value = DatatypeConverter.printHexBinary(md.digest()).toLowerCase();
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
 			}
@@ -49,6 +66,35 @@ public class LoginAction {
 	}
 	
 	@RequestMapping(value="/main")
-	public void main(@RequestParam(name="success", required=true) String username) {}
+	public String main(@RequestParam(name="success", required=true) String username, Model model) {
+		model.addAttribute("username", name);
+		
+		List<MainListBean> outerList = new ArrayList<>();	
+		
+		bean = new MainListBean();
+		bean.setHeader("Sample Code");				
+		list = new ArrayList<>();
+		
+		for (int i = 0; i < 8; i++) {
+			list.add("Sample Code Item " + i);
+		}
+		
+		bean.setList(list);		
+		outerList.add(bean);
+		
+		bean = new MainListBean();
+		bean.setHeader("Sample Tutorial");		
+		list = new ArrayList<>();
+		
+		for (int i = 0; i < 8; i++) {
+			list.add("Sample Tutorial Item " + i);
+		}
+		
+		bean.setList(list);
+		outerList.add(bean);
+		
+		model.addAttribute("outerlist", outerList);		
+		return "main";
+	}
 	
 }

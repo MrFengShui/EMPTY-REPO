@@ -1,11 +1,22 @@
-/**
- * http://usejsdoc.org/
- */
 function match_size() {
 	var main_div = document.getElementById('main_div');
-	console.log("hello");
+	
 	if (main_div) {
 		main_div.style.width = 'calc(1000px - 250px)';
+	}
+}
+
+function show_hide_list(event) {
+	var button = event.target;
+	var root = event.target.parentNode.parentNode;
+	var child = root.children[1];
+	
+	if (child.style.display == 'none' || child.style.display == '') {
+		child.style.display = 'block';
+		button.innerText = '-';
+	} else {
+		child.style.display = 'none';
+		button.innerText = '+';
 	}
 }
 
@@ -19,7 +30,7 @@ function show_date_time() {
 	var minute = date.getMinutes();
 	var second = date.getSeconds();
 	var components = document.getElementsByClassName("top_dt_div");
-	console.log("hello");
+	
 	for (var i = 0; i < components.length; i++) {
 		components[i].innerHTML = "Current Date&Time: " + year + "-" + bitFormat(month) + "-" + bitFormat(day) + "\t" + weekFormat(week) + "\t" + bitFormat(hour) + ":" + bitFormat(minute) + ":" + bitFormat(second);
 	}

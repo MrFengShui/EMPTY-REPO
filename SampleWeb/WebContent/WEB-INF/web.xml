@@ -14,6 +14,16 @@
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+	<servlet-name>displaychart</servlet-name>
+	<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>displaychart</servlet-name>
+    <url-pattern>/servlet/displaychart</url-pattern>
+  </servlet-mapping>
+  
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>/WEB-INF/dispatcher-context.xml</param-value>
