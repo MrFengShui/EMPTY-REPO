@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="WEB-RES/css/dark-style.css"/>
 <title>Main Page</title>
 </head>
-<body>
+<body onresize="match_size()">
 <div id="main_div">
 	<div><jsp:include page="part/top.jsp"/></div>
 	<hr>
@@ -17,5 +18,5 @@
 </div>
 </body>
 <script src="WEB-RES/js/execute.js" type="text/javascript"></script>
-<script src="WEB-RES/js/main.js" type="text/javascript" onload="show_date_time();"></script>
+<script src="WEB-RES/js/main.js" type="text/javascript" onload="show_date_time();match_size();"></script>
 </html>

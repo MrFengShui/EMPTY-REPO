@@ -1,22 +1,23 @@
 function match_size() {
 	var main_div = document.getElementById('main_div');
+	var center_div = main_div.children[2];
 	
-	if (main_div) {
-		main_div.style.width = 'calc(1000px - 250px)';
+	if (center_div) {
+		center_div.style.height = 'calc(' + document.body.clientHeight + 'px - 105px)';
 	}
 }
 
 function show_hide_list(event) {
-	var button = event.target;
-	var root = event.target.parentNode.parentNode;
+	var button = (event.target.nodeName == 'I') ? event.target.parentNode : event.target;
+	var root = button.parentNode.parentNode;
 	var child = root.children[1];
 	
 	if (child.style.display == 'none' || child.style.display == '') {
 		child.style.display = 'block';
-		button.innerText = '-';
+		button.children[0].className = 'fa fa-folder-open-o'
 	} else {
 		child.style.display = 'none';
-		button.innerText = '+';
+		button.children[0].className = 'fa fa-folder-o'
 	}
 }
 

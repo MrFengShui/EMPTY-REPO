@@ -1,5 +1,8 @@
 package pers.luan.web.action;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -11,6 +14,10 @@ import java.util.Locale;
 
 import javax.xml.bind.DatatypeConverter;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -21,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import pers.luan.web.bean.IndexBean;
-import pers.luan.web.bean.MainListBean;
+import pers.luan.web.bean.MainBean;
 import pers.luan.web.dao.LoginDAO;
 import pers.luan.web.db.SampleDB;
 
@@ -29,10 +36,7 @@ import pers.luan.web.db.SampleDB;
 public class LoginAction {
 	
 	private String name;
-	private List<String> list;
-	
-	private MainListBean bean;
-	
+
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public ModelAndView getIndex(Model model) {
 		IndexBean bean = new IndexBean();
@@ -69,32 +73,45 @@ public class LoginAction {
 	public String main(@RequestParam(name="success", required=true) String username, Model model) {
 		model.addAttribute("username", name);
 		
-		List<MainListBean> outerList = new ArrayList<>();	
-		
-		bean = new MainListBean();
-		bean.setHeader("Sample Code");				
-		list = new ArrayList<>();
-		
-		for (int i = 0; i < 8; i++) {
-			list.add("Sample Code Item " + i);
-		}
-		
-		bean.setList(list);		
-		outerList.add(bean);
-		
-		bean = new MainListBean();
-		bean.setHeader("Sample Tutorial");		
-		list = new ArrayList<>();
-		
-		for (int i = 0; i < 8; i++) {
-			list.add("Sample Tutorial Item " + i);
-		}
-		
-		bean.setList(list);
-		outerList.add(bean);
-		
-		model.addAttribute("outerlist", outerList);		
+		String path = getClass().getResource("/pers/luan/web/cfg/list.json").toExternalForm().replace("file:", "");
+		List<MainBean> list = parse(path);			
+		model.addAttribute("outerlist", list);			
 		return "main";
+	}
+	
+	private List<MainBean> parse(String path) {
+		try {
+			List<MainBean> mainList = new ArrayList<>();
+			Reader reader = new FileReader(path);
+			JSONParser parser = new JSONParser();
+			JSONObject json = (JSONObject) parser.parse(reader);
+			
+			for (Object key : json.keySet()) {
+				JSONObject value = (JSONObject) json.get(key);
+				JSONArray array = (JSONArray) value.get("list");
+				List<MainBean.ItemBean> itemList = new ArrayList<>();
+				
+				for (int i = 0; i < array.size(); i ++) {
+					JSONObject item = (JSONObject) array.get(i);
+					MainBean.ItemBean itemBean = new MainBean.ItemBean();
+					itemBean.setTitle(item.get("title").toString());
+					itemBean.setPlace(item.get("place").toString());
+					itemList.add(itemBean);
+				}
+				
+				MainBean mainBean = new MainBean();
+				mainBean.setTitle(value.get("title").toString());
+				mainBean.setPlace(value.get("place").toString());
+				mainBean.setList(itemList);
+				mainList.add(mainBean);
+			}
+			
+			return mainList;
+		} catch (IOException | ParseException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 }

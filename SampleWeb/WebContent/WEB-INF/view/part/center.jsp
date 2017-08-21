@@ -13,13 +13,15 @@
 		<c:forEach items="${outerlist}" var="outer">
 			<li class="main_item_node">
 				<div class="main_item_header">
-					<button class="main_item_button">+</button>
-					<h2>${outer.header}</h2>
+					<button class="main_item_button"><i class="fa fa-folder-o" aria-hidden="true"></i></button>
+					<h2>${outer.title}</h2>
 				</div>
 				<div class="main_item_content">
 					<c:if test="${!empty outer.list}">
 						<c:forEach items="${outer.list}" var="inner">
-							<a href="demo/chart" target="page_frame" class="main_item_link">${inner}</a>
+							<a href="${outer.place}/${inner.place}" target="page_frame" class="main_item_link">
+								&nbsp;&nbsp;&nbsp;<i class="fa fa-file-o" aria-hidden="true">&nbsp;&nbsp;${inner.title}</i>
+							</a>
 						</c:forEach>
 					</c:if>
 				</div>

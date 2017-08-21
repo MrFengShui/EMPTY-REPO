@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,13 @@
 <title>JFreeChart Demonstration Page</title>
 </head>
 <body>
-<h1>JFreeChart Sample Image</h1>
-<img alt="image" src="${charturl}" width="800" height="600" border="1">
-<img alt="image" src="../WEB-RES/img/demo.png" width="256" height="256" border="1">
+<h1 id="demo_chart_header">JFreeChart Sample Image</h1>
+<div id="demo_chart_div">
+	<c:if test="${!empty list}">
+		<c:forEach items="${list}" var="item">
+			<img alt="image" src="${item}" width="480" height="360" border="1" style="margin: 10px;">
+		</c:forEach>
+	</c:if>
+</div>
 </body>
 </html>
