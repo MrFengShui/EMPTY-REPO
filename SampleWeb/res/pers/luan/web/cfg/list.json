@@ -3,12 +3,117 @@
 		"title": "Sample Demo",
 		"place": "demo",
 		"list": [
-			{"title": "JFreeChart Demo", "place": "chart"},
-			{"title": "Struts Demo", "place": "#"},
-			{"title": "Hibernate Demo", "place": "#"},
-			{"title": "iBatis Demo", "place": "#"},
-			{"title": "Spring MVC Demo", "place": "#"},
-			{"title": "Spring Demo", "place": "#"}
+			{"title": "JFreeChart Demo", "place": "chart", "list": []},
+			{"title": "Struts Demo", "place": "#", "list": []},
+			{"title": "Hibernate Demo", "place": "#", "list": []},
+			{"title": "iBatis Demo", "place": "#", "list": []},
+			{"title": "Spring MVC Demo", "place": "#", "list": []},
+			{"title": "Spring Demo", "place": "#", "list": []}
+		]
+	},
+	"jfree_demo": {
+		"title": "JFreeChart Demo",
+		"place": "demo",
+		"list": [
+			{
+				"title": "Bar Chart Demo",
+				"place": "",
+				"list": [
+					{"title": "Simple Bar Chart", "place": "#", "list": []},
+					{"title": "Normal Bar Chart", "place": "#", "list": []},
+					{"title": "Complex Bar Chart", "place": "#", "list": []}
+				]
+			},
+			{
+				"title": "Line Chart Demo",
+				"place": "",
+				"list": [
+					{"title": "Simple Line Chart", "place": "#", "list": []},
+					{"title": "Normal Line Chart", "place": "#", "list": []},
+					{"title": "Complex Line Chart", "place": "#", "list": []}
+				]
+			},
+			{
+				"title": "Pie Chart Demo",
+				"place": "",
+				"list": [
+					{"title": "Simple Pie Chart", "place": "#", "list": []},
+					{"title": "Normal Pie Chart", "place": "#", "list": []},
+					{"title": "Complex Pie Chart", "place": "#", "list": []}
+				]
+			},
+			{
+				"title": "Scatter Chart Demo",
+				"place": "",
+				"list": [
+					{"title": "Simple Scatter Chart", "place": "#", "list": []},
+					{"title": "Normal Scatter Chart", "place": "#", "list": []},
+					{"title": "Complex Scatter Chart", "place": "#", "list": []}
+				]
+			}
+		]
+	},
+	"pattern_tutorial": {
+		"title": "Design Pattern Tutorial",
+		"place": "demo",
+		"list": [
+			{
+				"title": "Creational Pattern",
+				"place": "",
+				"list": [
+					{"title": "Factory", "place": "#", "list": []},
+					{"title": "Abstract Factory", "place": "#", "list": []},
+					{"title": "Builder", "place": "#", "list": []},
+					{"title": "Singleton", "place": "#", "list": []},
+					{"title": "Prototype", "place": "#", "list": []}
+				]
+			},
+			{
+				"title": "Structural Pattern",
+				"place": "",
+				"list": [
+					{"title": "Adapter", "place": "#", "list": []},
+					{"title": "Bridge", "place": "#", "list": []},
+					{"title": "Filter", "place": "#", "list": []},
+					{"title": "Composite", "place": "#", "list": []},
+					{"title": "Decorator", "place": "#", "list": []},
+					{"title": "Facade", "place": "#", "list": []},
+					{"title": "Flyweight", "place": "#", "list": []},
+					{"title": "Proxy", "place": "#", "list": []}
+				]
+			},
+			{
+				"title": "Behavioral Pattern",
+				"place": "",
+				"list": [
+					{"title": "Chain of Responsibility", "place": "#", "list": []},
+					{"title": "Command", "place": "#", "list": []},
+					{"title": "Interpreter", "place": "#", "list": []},
+					{"title": "Iterator", "place": "#", "list": []},
+					{"title": "Mediator", "place": "#", "list": []},
+					{"title": "Memento", "place": "#", "list": []},
+					{"title": "Observer", "place": "#", "list": []},
+					{"title": "State", "place": "#", "list": []},
+					{"title": "Null Object", "place": "#", "list": []},
+					{"title": "Strategy", "place": "#", "list": []},
+					{"title": "Template", "place": "#", "list": []},
+					{"title": "Visitor", "place": "#", "list": []}
+				]
+			},
+			{
+				"title": "J2EE Pattern",
+				"place": "",
+				"list": [
+					{"title": "MVC", "place": "#", "list": []},
+					{"title": "Business Delegate", "place": "#", "list": []},
+					{"title": "Composite Entity", "place": "#", "list": []},
+					{"title": "Data Access Object", "place": "#", "list": []},
+					{"title": "Front Controller", "place": "#", "list": []},
+					{"title": "Intercepting Filter", "place": "#", "list": []},
+					{"title": "Service Locator", "place": "#", "list": []},
+					{"title": "Transfer Object", "place": "#", "list": []}
+				]
+			}
 		]
 	}
 }

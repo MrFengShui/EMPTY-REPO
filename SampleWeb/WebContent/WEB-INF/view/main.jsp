@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,11 @@
 <div id="main_div">
 	<div><jsp:include page="part/top.jsp"/></div>
 	<hr>
-	<div style="display: inline-flex;width: 100%;"><jsp:include page="part/center.jsp"/></div>
+	<div style="display: inline-flex;width: 100%;">
+		<jsp:include page="part/left.jsp"/>
+		<hr>
+		<iframe src="" name="page_frame"></iframe>
+	</div>
 	<hr>
 	<div><jsp:include page="part/bottom.jsp"/></div>
 </div>
