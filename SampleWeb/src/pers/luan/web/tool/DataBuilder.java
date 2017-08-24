@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class DataBuilder {
 
-	public static List<Float> createRandomData(int cycle) {
+	public static List<Float> createRandomData(int cycle, float min, float max) {
 		List<Float> list = new ArrayList<>();
 		Random random = new Random();
 		
@@ -15,14 +15,14 @@ public class DataBuilder {
 		}
 
 		for (int i = 0; i < cycle; i ++) {
-			list.add(random.nextFloat() * 100);
+			list.add(random.nextFloat() * (max - min + 1) + min);
 		}
 		
 		return list;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static List<Float>[] createRandomArray(int cycle) {
+	public static List<Float>[] createRandomArray(int cycle, float min, float max) {
 		List<List<Float>> lists = new ArrayList<>();
 		Random random = new Random();
 		
@@ -31,7 +31,7 @@ public class DataBuilder {
 		}
 		
 		for (int i = 0; i < cycle; i ++) {
-			List<Float> list = createRandomData(cycle);
+			List<Float> list = createRandomData(cycle, min, max);
 			lists.add(list);
 		}
 		

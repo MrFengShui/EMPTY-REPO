@@ -14,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
-import pers.luan.web.bean.IndexBean;
+import pers.luan.web.bean.LoginFormBean;
 import pers.luan.web.bean.SampleBean;
 import pers.luan.web.bean.TreeNodeBean;
 import pers.luan.web.db.SampleDB;
@@ -60,7 +60,7 @@ public class UnitTest {
 	public void indexTest() {
 		session = SampleDB.fetchSQLSession();
 		IndexMapper mapper = session.getMapper(IndexMapper.class);
-		IndexBean bean = mapper.findUserInfo("tester");
+		LoginFormBean bean = mapper.findUserInfo("tester");
 		
 		if (bean.getUsername().equals("tester") && bean.getPassword().equals("123456")) {
 			System.out.println("Success");

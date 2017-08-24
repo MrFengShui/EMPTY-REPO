@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import pers.luan.web.bean.IndexBean;
+import pers.luan.web.bean.LoginFormBean;
 import pers.luan.web.bean.TreeNodeBean;
 import pers.luan.web.dao.LoginDAO;
 import pers.luan.web.db.SampleDB;
@@ -27,52 +27,55 @@ import pers.luan.web.tool.TreeBuilder;
 
 @Controller
 public class LoginAction {
-	
+
 	private String name;
 
-	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public ModelAndView getIndex(Model model) {
-		IndexBean bean = new IndexBean();
-		return new ModelAndView("index", "indexBean", bean);
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView doGetForm() {
+		return new ModelAndView("login", "indexBean", new LoginFormBean());
 	}
-	
-	@RequestMapping(value="/index", method=RequestMethod.POST)
-	public String postIndex(@ModelAttribute("indexBean")IndexBean bean, Model model, ModelMap map) {
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String doPostForm(@ModelAttribute("indexBean") LoginFormBean bean, ModelMap map) {
 		LoginDAO loginDAO = new LoginDAO(SampleDB.fetchSQLSession());
-		
+
 		if (loginDAO.isValid(bean)) {
 			String value = bean.getUsername();
 			name = value;
-			
+
 			try {
-				DateFormat format = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
+				DateFormat format = DateFormat.getDateTimeInstance(
+								DateFormat.MEDIUM, DateFormat.MEDIUM);
 				Date date = Calendar.getInstance(Locale.getDefault()).getTime();
 				value += " login at " + format.format(date);
 				MessageDigest md = MessageDigest.getInstance("MD5");
 				md.update(value.getBytes());
-				value = DatatypeConverter.printHexBinary(md.digest()).toLowerCase();
+				value = DatatypeConverter.printHexBinary(md.digest())
+								.toLowerCase();
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
 			}
-			
+
 			map.addAttribute("success", value);
-			return "redirect:main";
+			return "redirect:index";
 		}
 
+		return "login";
+	}
+
+	@RequestMapping(value = "/index")
+	public String doRedirect(
+					@RequestParam(name = "success",
+									required = true) String value,
+					Model model) {
+		model.addAttribute("username", name);
+
+		String path = getClass().getResource("/pers/luan/web/cfg/list.json")
+						.toExternalForm().replace("file:", "");
+		TreeBuilder builder = new TreeBuilder();
+		List<TreeNodeBean> list = builder.parse(path);
+		model.addAttribute("treelist", list);
 		return "index";
 	}
-	
-	@RequestMapping(value="/main")
-	public String main(@RequestParam(name="success", required=true) String username, Model model) {
-		model.addAttribute("username", name);
-		
-		String path = getClass().getResource("/pers/luan/web/cfg/list.json").toExternalForm().replace("file:", "");
-		TreeBuilder builder = new TreeBuilder();
-		List<TreeNodeBean> list = builder.parse(path);			
-		model.addAttribute("treelist", list);			
-		return "main";
-	}
-	
-	
-	
+
 }

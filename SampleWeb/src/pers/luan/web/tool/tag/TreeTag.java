@@ -76,7 +76,7 @@ public class TreeTag extends TagSupport {
 				writer.println("<div class='main_item_header'>");
 				writer.println(space);
 				writer.println("<button class='main_item_button'><i class='fa fa-folder-o' aria-hidden='true'></i></button>");
-				writer.println("<h2>" + node.getTitle() + "</h2>");
+				writer.println("<h2>&nbsp;&nbsp;" + node.getTitle() + "</h2>");
 				writer.println("</div>");
 				writer.println("<div class='main_item_content'>");
 				

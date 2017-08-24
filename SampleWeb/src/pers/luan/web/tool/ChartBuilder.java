@@ -21,13 +21,20 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class ChartBuilder {
 
+	private final float min, max;
+	
+	public ChartBuilder(float min, float max) {
+		this.min = min;
+		this.max = max;
+	}
+
 	public CategoryDataset createDataset(List<Float> list, boolean flag) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		int cycle = list.size();
 		
 		for (int i = 0; i < cycle; i ++) {
 			if (flag) {
-				list = DataBuilder.createRandomData(cycle);
+				list = DataBuilder.createRandomData(cycle, min, max);
 				String label = "Item_" + i;
 				
 				for (int j = 0; j < list.size(); j ++) {
@@ -48,7 +55,7 @@ public class ChartBuilder {
 		for (int i = 0; i < lists.length; i ++) {
 			XYSeries series = new XYSeries("Item_" + i);
 			List<Float> item = lists[i];
-			List<Float> list = DataBuilder.createRandomData(item.size());
+			List<Float> list = DataBuilder.createRandomData(item.size(), min, max);
 			
 			for (int j = 0; j < item.size(); j ++) {
 				series.add(list.get(j), item.get(j));
@@ -61,7 +68,7 @@ public class ChartBuilder {
 	}
 	
 	public PieDataset createPieDateset(List<Float> list) {
-		DefaultPieDataset dataset = new DefaultPieDataset( );
+		DefaultPieDataset dataset = new DefaultPieDataset();
 		int cycle = list.size();	
 		
 		for (int i = 0; i < cycle; i ++) {

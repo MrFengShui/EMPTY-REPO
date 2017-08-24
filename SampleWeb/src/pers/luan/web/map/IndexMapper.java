@@ -1,9 +1,9 @@
 package pers.luan.web.map;
 
-import pers.luan.web.bean.IndexBean;
+import pers.luan.web.bean.LoginFormBean;
 
 public interface IndexMapper {
 
-	public IndexBean findUserInfo(String username);
+	public LoginFormBean findUserInfo(String username);
 	
 }

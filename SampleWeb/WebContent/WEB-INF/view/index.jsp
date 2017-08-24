@@ -1,34 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="WEB-RES/css/dark-style.css"/>
-<title>Index Page</title>
+<title>Main Page</title>
 </head>
-<body>
-<h1 id="index_header_1">My First JSP Web Project</h1>
-<div id="index_section_div">
-	<section id="index_section">
-		<h2 id="index_header_2">Sign In</h2>
-		<form:form method="POST" action="index" commandName="indexBean">
-			<table id="index_form_table">
-				<tr>
-					<td class="index_table_label">Username</td>
-					<td><form:input path="username"/></td>
-				</tr>
-				<tr>
-					<td class="index_table_label">Password</td>
-					<td><form:password name="password" path="password"/></td>
-				</tr>
-				<tr>
-					<td id="index_table_control" colspan="2"><input type="submit" value="Login"></td>
-				</tr>
-			</table>
-		</form:form>
-	</section>
+<body onresize="match_size()">
+<div id="main_div">
+	<div><jsp:include page="part/top.jsp"/></div>
+	<hr>
+	<div style="display: inline-flex;width: 100%;">
+		<jsp:include page="part/left.jsp"/>
+		<hr>
+		<iframe src="" name="page_frame" id="main_page_frame"></iframe>
+	</div>
+	<hr>
+	<div><jsp:include page="part/bottom.jsp"/></div>
 </div>
 </body>
+<script src="WEB-RES/js/execute.js" type="text/javascript"></script>
+<script src="WEB-RES/js/main.js" type="text/javascript" onload="show_date_time();match_size();"></script>
 </html>

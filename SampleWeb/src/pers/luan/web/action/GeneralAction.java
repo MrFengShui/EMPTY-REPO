@@ -11,14 +11,9 @@ public class GeneralAction {
 
 	@RequestMapping("/")
 	public String initial() {
-		return "redirect:index";
+		return "redirect:login";
 	}
-	
-	@RequestMapping("/index")
-	public String index() {
-		return "index";
-	}
-	
+
 	@RequestMapping("/test")
 	public String test() {
 		return "test";

@@ -3,7 +3,7 @@
 
 <mapper namespace="pers.luan.web.map.IndexMapper">
 
-	<resultMap type="pers.luan.web.bean.IndexBean" id="indexMap">
+	<resultMap type="pers.luan.web.bean.LoginFormBean" id="indexMap">
 		<result property="username" column="USERNAME" javaType="java.lang.String"/>
 		<result property="password" column="PASSWORD" javaType="java.lang.String"/>
 	</resultMap>

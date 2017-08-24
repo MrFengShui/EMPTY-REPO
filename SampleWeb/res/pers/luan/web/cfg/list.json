@@ -3,7 +3,6 @@
 		"title": "Sample Demo",
 		"place": "demo",
 		"list": [
-			{"title": "JFreeChart Demo", "place": "chart", "list": []},
 			{"title": "Struts Demo", "place": "#", "list": []},
 			{"title": "Hibernate Demo", "place": "#", "list": []},
 			{"title": "iBatis Demo", "place": "#", "list": []},
@@ -15,13 +14,13 @@
 		"title": "JFreeChart Demo",
 		"place": "demo",
 		"list": [
+			{"title": "JFreeChart Preview", "place": "chart?layout=mult&type=preview", "list": []},
 			{
 				"title": "Bar Chart Demo",
 				"place": "",
 				"list": [
-					{"title": "Simple Bar Chart", "place": "#", "list": []},
-					{"title": "Normal Bar Chart", "place": "#", "list": []},
-					{"title": "Complex Bar Chart", "place": "#", "list": []}
+					{"title": "Bar Chart - Random Number", "place": "chart?layout=both&type=bar&method=random", "list": []},
+					{"title": "Bar Chart - Loading File", "place": "chart?layout=both&type=bar&method=file", "list": []}
 				]
 			},
 			{

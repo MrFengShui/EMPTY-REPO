@@ -1,6 +1,6 @@
 package pers.luan.web.bean;
 
-public class IndexBean {
+public class LoginFormBean {
 
 	private String username, password;
 
@@ -22,7 +22,7 @@ public class IndexBean {
 
 	@Override
 	public String toString() {
-		return "IndexBean [username=" + username + ", password=" + password + "]";
+		return "LoginFormBean [username=" + username + ", password=" + password + "]";
 	}
 	
 }
