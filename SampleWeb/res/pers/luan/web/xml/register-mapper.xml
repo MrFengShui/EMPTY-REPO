@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.luan.web.map.RegisterMapper">
+
+	<resultMap type="pers.luan.web.bean.map.UserSignBean" id="userSignMap">
+		<result property="username" column="USER_USERNAME" javaType="java.lang.String" />
+		<result property="password" column="USER_PASSWORD" javaType="java.lang.String" />
+		<result property="ID" column="USER_INFO_ID" javaType="java.lang.Integer" />
+	</resultMap>
+
+	<insert id="addUserInfo">
+		INSERT INTO USER_INFO_TB(USER_ID, USER_FIRST_NAME,
+		USER_LAST_NAME,
+		USER_GENDER, USER_EMAIL, USER_NATION, USER_BIRTH_DATE)
+		VALUES(#{ID}, #{firstname}, #{lastname}, #{gender}, #{email},
+		#{nation}, #{dateOfBirth});
+	</insert>
+
+	<insert id="addUserSign">
+		INSERT INTO USER_SIGN_TB(USER_USERNAME, USER_PASSWORD, USER_INFO_ID)
+		VALUES( #{username}, #{password}, #{ID});
+	</insert>
+	
+	<select id="checkUserInfo" resultMap="userSignMap" parameterType="String">
+		SELECT USER_INFO_ID 
+		FROM USER_SIGN_TB
+		WHERE USER_USERNAME&lt;&gt;#{username};
+	</select>
+
+</mapper>

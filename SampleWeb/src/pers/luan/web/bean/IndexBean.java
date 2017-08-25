@@ -2,9 +2,7 @@ package pers.luan.web.bean;
 
 import java.util.List;
 
-import org.json.simple.JSONArray;
-
-public class MainBean {
+public class IndexBean {
 
 	private String title, place;
 	private List<ItemBean> list;
@@ -62,7 +60,7 @@ public class MainBean {
 
 	@Override
 	public String toString() {
-		return "MainBean [title=" + title + ", place=" + place + ", list=" + list + "]";
+		return "IndexBean [title=" + title + ", place=" + place + ", list=" + list + "]";
 	}
 	
 }

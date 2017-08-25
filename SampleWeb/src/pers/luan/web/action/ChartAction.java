@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.jfree.data.category.CategoryDataset;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import pers.luan.web.bean.ChartFormBean;
+import pers.luan.web.bean.form.ChartFormBean;
 import pers.luan.web.tool.ChartBuilder;
 import pers.luan.web.tool.DataBuilder;
 

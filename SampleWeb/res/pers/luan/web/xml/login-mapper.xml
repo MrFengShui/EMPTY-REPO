@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.luan.web.map.LoginMapper">
+
+	<resultMap type="pers.luan.web.bean.map.UserSignBean" id="loginMap">
+		<result property="username" column="USER_USERNAME" javaType="java.lang.String"/>
+		<result property="password" column="USER_PASSWORD" javaType="java.lang.String"/>
+		<result property="ID" column="USER_INFO_ID" javaType="java.lang.Integer"/>
+	</resultMap>
+	
+	<select id="findUserInfo" resultMap="loginMap" parameterType="String">
+		SELECT * 
+		FROM USER_SIGN_TB
+		WHERE USER_USERNAME=#{username};
+	</select>
+	
+</mapper>

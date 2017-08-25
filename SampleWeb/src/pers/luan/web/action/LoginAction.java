@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import pers.luan.web.bean.LoginFormBean;
 import pers.luan.web.bean.TreeNodeBean;
+import pers.luan.web.bean.form.LoginFormBean;
 import pers.luan.web.dao.LoginDAO;
 import pers.luan.web.db.SampleDB;
 import pers.luan.web.tool.TreeBuilder;
@@ -70,7 +70,7 @@ public class LoginAction {
 					Model model) {
 		model.addAttribute("username", name);
 
-		String path = getClass().getResource("/pers/luan/web/cfg/list.json")
+		String path = getClass().getResource("/pers/luan/web/json/list.json")
 						.toExternalForm().replace("file:", "");
 		TreeBuilder builder = new TreeBuilder();
 		List<TreeNodeBean> list = builder.parse(path);

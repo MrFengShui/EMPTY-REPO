@@ -1,12 +1,16 @@
-package pers.luan.web.bean;
+package pers.luan.web.bean.form;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class RegisterFormBean {
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private Date dateOfBirth;
+	
 	private String firstname, lastname;
 	private String gender, email, nation;
-	private Date dateOfBirth;
 	private String username, password, confirmPassword;
 	private Boolean agree;
 
@@ -93,10 +97,11 @@ public class RegisterFormBean {
 	@Override
 	public String toString() {
 		return "RegisterFormBean [firstname=" + firstname + ", lastname="
-						+ lastname + ", gender=" + gender + ", dateOfBirth="
-						+ dateOfBirth + ", username=" + username + ", password="
-						+ password + ", confirmPassword=" + confirmPassword
-						+ ", agree=" + agree + "]";
+						+ lastname + ", gender=" + gender + ", email=" + email
+						+ ", nation=" + nation + ", dateOfBirth=" + dateOfBirth
+						+ ", username=" + username + ", password=" + password
+						+ ", confirmPassword=" + confirmPassword + ", agree="
+						+ agree + "]";
 	}
 	
 }

@@ -2,8 +2,9 @@ package pers.luan.web.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import pers.luan.web.bean.LoginFormBean;
-import pers.luan.web.map.IndexMapper;
+import pers.luan.web.bean.form.LoginFormBean;
+import pers.luan.web.bean.map.UserSignBean;
+import pers.luan.web.map.LoginMapper;
 
 public class LoginDAO {
 
@@ -14,11 +15,11 @@ public class LoginDAO {
 	}
 	
 	public boolean isValid(LoginFormBean bean) {
-		IndexMapper mapper = session.getMapper(IndexMapper.class);
-		LoginFormBean mapperBean = mapper.findUserInfo(bean.getUsername());
+		LoginMapper mapper = session.getMapper(LoginMapper.class);
+		UserSignBean signBean = mapper.findUserInfo(bean.getUsername());
 		
-		if (mapperBean != null) {
-			return mapperBean.getUsername().equals(bean.getUsername()) && mapperBean.getPassword().equals(bean.getPassword());
+		if (signBean != null) {
+			return signBean.getUsername().equals(bean.getUsername()) && signBean.getPassword().equals(bean.getPassword());
 		}
 		
 		return false;

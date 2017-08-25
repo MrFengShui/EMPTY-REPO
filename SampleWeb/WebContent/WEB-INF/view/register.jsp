@@ -11,7 +11,10 @@
 <body id="register-body">
 <header id="register-page-header">My First JSP Web Project</header>
 <div id="register-section">
-	<header id="register-section-header">Sign Up</header>
+	<div style="display: inline-flex;width: 100%;">
+		<header id="register-section-header">Sign Up</header>
+		<a href="login" id="register-header-link">Login</a>
+	</div>
 	<form:form method="POST" commandName="registerBean" cssClass="register-form-style">
 		<table id="register-form-table">
 			<tr>

@@ -1,4 +1,4 @@
-package pers.luan.web.bean;
+package pers.luan.web.bean.form;
 
 public class LoginFormBean {
 

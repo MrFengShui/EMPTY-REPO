@@ -17,7 +17,8 @@
 	
 	<mappers>
 		<mapper resource="pers/luan/web/xml/sample-mapper.xml"/>
-		<mapper resource="pers/luan/web/xml/index-mapper.xml"/>
+		<mapper resource="pers/luan/web/xml/login-mapper.xml"/>
+		<mapper resource="pers/luan/web/xml/register-mapper.xml"/>
 	</mappers>
 	
 </configuration>

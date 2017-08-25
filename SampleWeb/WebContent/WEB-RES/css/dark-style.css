@@ -164,6 +164,18 @@ hr {
 	font-weight: bold;
 	margin: 0 auto;
 	padding: 5px;
+	width: 100%;
+	text-align: left;
+}
+
+#register-header-link {
+	background-color: rgb(32, 32, 32);
+	color: rgb(234, 234, 234);
+	font-family: "Arial", Arial, Sans-serif;
+	font-size: 24pt;
+	font-weight: bold;
+	width: 20%;
+	height: 50px;
 }
 
 #register-form-table {

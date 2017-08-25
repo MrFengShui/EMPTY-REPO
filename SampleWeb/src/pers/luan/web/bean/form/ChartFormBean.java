@@ -1,4 +1,4 @@
-package pers.luan.web.bean;
+package pers.luan.web.bean.form;
 
 public class ChartFormBean {
 
@@ -30,8 +30,8 @@ public class ChartFormBean {
 
 	@Override
 	public String toString() {
-		return "ChartFormBean [minBound=" + minBound + ", maxBound="
-						+ maxBound + "]";
+		return "ChartFormBean [count=" + count + ", minBound=" + minBound
+						+ ", maxBound=" + maxBound + "]";
 	}
 	
 }

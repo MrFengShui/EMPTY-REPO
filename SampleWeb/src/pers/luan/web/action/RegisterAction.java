@@ -1,15 +1,7 @@
 package pers.luan.web.action;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-
-import javax.xml.bind.DatatypeConverter;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,33 +9,31 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import pers.luan.web.bean.LoginFormBean;
-import pers.luan.web.bean.RegisterFormBean;
-import pers.luan.web.bean.TreeNodeBean;
-import pers.luan.web.dao.LoginDAO;
+import pers.luan.web.bean.form.RegisterFormBean;
+import pers.luan.web.bean.map.UserInfoBean;
+import pers.luan.web.bean.map.UserSignBean;
+import pers.luan.web.dao.RegisterDAO;
 import pers.luan.web.db.SampleDB;
 import pers.luan.web.tool.FileIO;
-import pers.luan.web.tool.TreeBuilder;
 
 @Controller
 public class RegisterAction {
 
-	private String name;
-
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView doGetForm(Model model) {
-		String path = getClass().getResource("/pers/luan/web/file/agreement.txt").toExternalForm();
+		String path = getClass()
+						.getResource("/pers/luan/web/file/agreement.txt")
+						.toExternalForm();
 		String content = FileIO.read(path.replace("file:", ""));
 		model.addAttribute("contract", content);
-		
+
 		List<String> genderList = new ArrayList<>();
 		genderList.add("Male");
 		genderList.add("Female");
 		model.addAttribute("genders", genderList);
-		
+
 		List<String> nationList = new ArrayList<>();
 		nationList.add("Australia");
 		nationList.add("China");
@@ -55,50 +45,52 @@ public class RegisterAction {
 		nationList.add("United Kingdom");
 		nationList.add("United States");
 		model.addAttribute("nations", nationList);
-		return new ModelAndView("register", "registerBean", new RegisterFormBean());
+		return new ModelAndView("register", "registerBean",
+						new RegisterFormBean());
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String doPostForm(@ModelAttribute("registerBean") RegisterFormBean bean, ModelMap map) {
-//		LoginDAO loginDAO = new LoginDAO(SampleDB.fetchSQLSession());
-//
-//		if (loginDAO.isValid(bean)) {
-//			String value = bean.getUsername();
-//			name = value;
-//
-//			try {
-//				DateFormat format = DateFormat.getDateTimeInstance(
-//								DateFormat.MEDIUM, DateFormat.MEDIUM);
-//				Date date = Calendar.getInstance(Locale.getDefault()).getTime();
-//				value += " login at " + format.format(date);
-//				MessageDigest md = MessageDigest.getInstance("MD5");
-//				md.update(value.getBytes());
-//				value = DatatypeConverter.printHexBinary(md.digest())
-//								.toLowerCase();
-//			} catch (NoSuchAlgorithmException e) {
-//				e.printStackTrace();
-//			}
-//
-//			map.addAttribute("success", value);
-//			return "redirect:main";
-//		}
-//
-		return "register";
-	}
+	public String doPostForm(
+					@ModelAttribute("registerBean") RegisterFormBean bean,
+					ModelMap map) {
+		RegisterDAO registerDAO = new RegisterDAO(SampleDB.fetchSQLSession());
 
-//	@RequestMapping(value = "/main")
-//	public String doRedirect(
-//					@RequestParam(name = "success",
-//									required = true) String value,
-//					Model model) {
-//		model.addAttribute("username", name);
-//
-//		String path = getClass().getResource("/pers/luan/web/cfg/list.json")
-//						.toExternalForm().replace("file:", "");
-//		TreeBuilder builder = new TreeBuilder();
-//		List<TreeNodeBean> list = builder.parse(path);
-//		model.addAttribute("treelist", list);
-//		return "main";
-//	}
+		if (bean.getAgree()) {
+			if (validForm(bean)) {
+				return "redirect:register";
+			}
+
+			if (bean.getPassword().equals(bean.getConfirmPassword())) {
+				UserInfoBean infoBean = new UserInfoBean();
+				infoBean.setFirstname(bean.getFirstname());
+				infoBean.setLastname(bean.getLastname());
+				infoBean.setGender(bean.getGender().equals("Male") ? 1 : 0);
+				infoBean.setEmail(bean.getEmail());
+				infoBean.setNation(bean.getNation());
+				infoBean.setDateOfBirth(bean.getDateOfBirth());
+
+				UserSignBean signBean = new UserSignBean();
+				signBean.setUsername(bean.getUsername());
+				signBean.setPassword(bean.getPassword());
+
+				if (registerDAO.isDone(infoBean, signBean)) {
+					return "redirect:login";
+				}
+			}
+		}
+
+		return "redirect:register";
+	}
+	
+	private boolean validForm(RegisterFormBean bean) {
+		return bean.getFirstname().equals(null)
+						&& bean.getLastname().equals(null)
+						&& bean.getGender().equals(null)
+						&& bean.getEmail().equals(null)
+						&& bean.getDateOfBirth().equals(null)
+						&& bean.getUsername().equals(null)
+						&& bean.getPassword().equals(null)
+						&& bean.getConfirmPassword().equals(null);
+	}
 
 }
