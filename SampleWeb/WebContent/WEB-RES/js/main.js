@@ -1,12 +1,3 @@
-function match_size() {
-	var main_div = document.getElementById('main_div');
-	var center_div = main_div.children[2];
-	
-	if (center_div) {
-		center_div.style.height = 'calc(' + document.body.clientHeight + 'px - 105px)';
-	}
-}
-
 function show_hide_list(event) {
 	var button = (event.target.nodeName == 'I') ? event.target.parentNode : event.target;
 	var root = button.parentNode.parentNode;

@@ -9,6 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<ul id="main_tree_list"><cc:tree treeList="${treelist}"/></ul>
+<ul id="index-tree-list"><cc:tree treeList="${treelist}"/></ul>
 </body>
 </html>

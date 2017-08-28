@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Properties;
 
 public class FileIO {
 
@@ -32,6 +33,33 @@ public class FileIO {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static Properties readProperties(String path, boolean flag) {
+		try {
+			is = new FileInputStream(path);
+			Properties props = new Properties();
+			
+			if (flag) {
+				props.loadFromXML(is);
+			} else {
+				props.load(is);
+			}
+			
+			return props;
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		return null;

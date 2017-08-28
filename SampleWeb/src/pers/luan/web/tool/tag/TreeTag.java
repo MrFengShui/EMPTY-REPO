@@ -41,7 +41,7 @@ public class TreeTag extends TagSupport {
 		
 		for (TreeNodeBean bean : treeList) {
 			try {
-				writer.println("<li class='main_tree_item'>");
+				writer.println("<li class='index-tree-item'>");
 				writeDOMTree(bean, writer, "");
 				writer.println("</li>");
 			} catch (IOException e) {
@@ -68,17 +68,17 @@ public class TreeTag extends TagSupport {
 			List<TreeNodeBean> list = node.getList();
 			
 			if (list.isEmpty()) {
-				writer.println("<a href='demo/" + node.getPlace() + "' target='page_frame' class='main_item_link'>");
+				writer.println("<a href='demo/" + node.getPlace() + "' target='page_frame' class='index-item-link'>");
 				writer.println(space + "<i class='fa fa-file-o' aria-hidden='true'>&nbsp;&nbsp;" + node.getTitle() + "</i>");
 				writer.println("</a>");
 			} else {
-				writer.println("<div class='main_node_div'>");
-				writer.println("<div class='main_item_header'>");
+				writer.println("<div class='index-node-div'>");
+				writer.println("<div class='index-item-header'>");
 				writer.println(space);
-				writer.println("<button class='main_item_button'><i class='fa fa-folder-o' aria-hidden='true'></i></button>");
-				writer.println("<h2>&nbsp;&nbsp;" + node.getTitle() + "</h2>");
+				writer.println("<button class='index-item-button'><i class='fa fa-folder-o' aria-hidden='true'></i></button>");
+				writer.println("<header>&nbsp;&nbsp;" + node.getTitle() + "</header>");
 				writer.println("</div>");
-				writer.println("<div class='main_item_content'>");
+				writer.println("<div class='index-item-content'>");
 				
 				if (list != null) {
 					space += "&nbsp;&nbsp;&nbsp;&nbsp;";

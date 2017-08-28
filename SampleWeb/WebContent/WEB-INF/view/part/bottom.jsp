@@ -6,6 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<div id="main_bottom_div">Luan Songjian Copyright 2017-08-13</div>
+<span>Luan Songjian Copyright 2017-08-13</span>
 </body>
 </html>

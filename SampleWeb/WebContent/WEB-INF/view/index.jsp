@@ -9,19 +9,17 @@
 <link rel="stylesheet" type="text/css" href="WEB-RES/css/dark-style.css"/>
 <title>Main Page</title>
 </head>
-<body onresize="match_size()">
-<div id="main_div">
-	<div><jsp:include page="part/top.jsp"/></div>
-	<hr>
-	<div style="display: inline-flex;width: 100%;">
-		<jsp:include page="part/left.jsp"/>
-		<hr>
-		<iframe src="" name="page_frame" id="main_page_frame"></iframe>
-	</div>
-	<hr>
-	<div><jsp:include page="part/bottom.jsp"/></div>
+<body>
+<div class="page-header"><jsp:include page="part/top.jsp"/></div>
+<hr>
+<div class="page-center" style="height: 88.5%">
+	<jsp:include page="part/left.jsp"/>
+	<hr style="height: 100%;">
+	<iframe src="" name="page_frame" id="main_page_frame"></iframe>
 </div>
+<hr>
+<div class="page-bottom"><jsp:include page="part/bottom.jsp"/></div>
 </body>
 <script src="WEB-RES/js/execute.js" type="text/javascript"></script>
-<script src="WEB-RES/js/main.js" type="text/javascript" onload="show_date_time();match_size();"></script>
+<script src="WEB-RES/js/main.js" type="text/javascript" onload="show_date_time();"></script>
 </html>

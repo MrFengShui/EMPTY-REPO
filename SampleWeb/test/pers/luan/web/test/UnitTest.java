@@ -1,14 +1,19 @@
 package pers.luan.web.test;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Reader;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map.Entry;
+import java.util.Properties;
 
 import org.apache.ibatis.session.SqlSession;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,11 +21,11 @@ import org.junit.Test;
 
 import pers.luan.web.bean.SampleBean;
 import pers.luan.web.bean.TreeNodeBean;
-import pers.luan.web.bean.form.LoginFormBean;
 import pers.luan.web.bean.map.UserSignBean;
 import pers.luan.web.db.SampleDB;
 import pers.luan.web.map.LoginMapper;
 import pers.luan.web.map.SampleMapper;
+import pers.luan.web.tool.FileIO;
 import pers.luan.web.tool.ProjectPath;
 import pers.luan.web.tool.TreeBuilder;
 
@@ -63,7 +68,7 @@ public class UnitTest {
 		LoginMapper mapper = session.getMapper(LoginMapper.class);
 		UserSignBean bean = mapper.findUserInfo("tester");
 		
-		if (bean.getUsername().equals("tester") && bean.getPassword().equals("123456")) {
+		if (bean.getUsername().equals("nwwolf") && bean.getPassword().equals("123456")) {
 			System.out.println("Success");
 		} else {
 			System.out.println("Failure");
@@ -77,7 +82,7 @@ public class UnitTest {
 	@Test
 	public void jsonTest() {
 		try {
-			String path = getClass().getResource("/pers/luan/web/cfg/list.json").toExternalForm().replace("file:", "");
+			String path = getClass().getResource("/pers/luan/web/json/list.json").toExternalForm().replace("file:", "");
 			System.out.println(path);
 			Reader reader = new FileReader(path);
 			JSONParser parser = new JSONParser();
@@ -90,6 +95,27 @@ public class UnitTest {
 			}
 		} catch (ParseException | IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void propertiesTest() throws IOException {
+		String path = getClass()
+						.getResource("/pers/luan/web/file/project.properties")
+						.toExternalForm();
+		Properties props = FileIO.readProperties(path.replace("file:", ""),
+						false);
+		OutputStream os = new FileOutputStream("/home/MrFengShui/test.xml");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd EEEE HH:mm:ss", Locale.getDefault());
+//		props.storeToXML(os, "Modified By " + format.format(Calendar.getInstance().getTime()));
+	}
+	
+	@Test
+	public void systemTest() {
+		Properties props = System.getProperties();
+		
+		for (Entry<Object, Object> entry : props.entrySet()) {
+			System.out.println(String.format(Locale.getDefault(), "KEY=%s\tVALUE=%s\n", entry.getKey(), entry.getValue()));
 		}
 	}
 	

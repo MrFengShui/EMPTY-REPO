@@ -2,7 +2,8 @@ package pers.luan.web.bean.form;
 
 public class ChartFormBean {
 
-	private Integer count, minBound, maxBound;
+	private Integer count;
+	private Float minBound, maxBound;
 
 	public Integer getCount() {
 		return count;
@@ -12,19 +13,19 @@ public class ChartFormBean {
 		this.count = count;
 	}
 
-	public Integer getMinBound() {
+	public Float getMinBound() {
 		return minBound;
 	}
 
-	public void setMinBound(Integer minBound) {
+	public void setMinBound(Float minBound) {
 		this.minBound = minBound;
 	}
 
-	public Integer getMaxBound() {
+	public Float getMaxBound() {
 		return maxBound;
 	}
 
-	public void setMaxBound(Integer maxBound) {
+	public void setMaxBound(Float maxBound) {
 		this.maxBound = maxBound;
 	}
 
