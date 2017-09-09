@@ -9,39 +9,36 @@
 <link rel="stylesheet" type="text/css" href="../WEB-RES/css/dark-style.css"/>
 <title>JFreeChart Demonstration Page</title>
 </head>
-<body style="overflow-x: auto">
+<body>
 <c:choose>
 	<c:when test="${condition == 'mono'}">
 		
 	</c:when>
 	<c:when test="${condition == 'both'}">
-		<div style="display: inline-block;">
-			<header id="demo_chart_header">JFreeChart XXX Image</header>
+		<div class="page-header">
+			<header>SAMPLE WEB - JFREECHART</header>
+		</div>
+		<div class="page-center" style="flex-wrap: wrap;">
 			<div id="demo-chart-image">
 				<img alt="" src="${img2d}" width="480" height="360">
 				<img alt="" src="${img3d}" width="480" height="360">
 			</div>
-			<form:form method="POST" commandName="chartFormBean" cssClass="demo-chart-form">
-				<form:label path="count">Count:</form:label>
-				<form:input path="count"/>
-				<form:label path="minBound">MinBound:</form:label>
-				<form:input path="minBound"/>
-				<form:label path="maxBound">MaxBound:</form:label>
-				<form:input path="maxBound"/>
-				<form:button>Generate</form:button>
-			</form:form>
+			<section class="form-section">
+				<header class="section-header">Chart Parameter Input</header>
+				<form:form method="POST" commandName="chartFormBean" cssClass="section-form" style="max-width: 1000px;">
+					<div class="table-head" style="flex-wrap: nowrap;">
+						<form:label path="count">Count:</form:label>
+						<form:input path="count" style="width: 100px;"/>
+						<form:label path="minBound">MinBound:</form:label>
+						<form:input path="minBound" style="width: 100px;"/>
+						<form:label path="maxBound">MaxBound:</form:label>
+						<form:input path="maxBound" style="width: 100px;"/>
+					</div>
+					<div class="table-foot"><form:button>Generate</form:button></div>				
+				</form:form>
+			</section>
 		</div>			
 	</c:when>
-	<c:otherwise>
-		<header id="demo_chart_header">JFreeChart Sample Image</header>
-		<div id="demo_chart_div">
-			<c:if test="${!empty list}">
-				<c:forEach items="${list}" var="item">
-					<img alt="image" src="${item}" width="480" height="360" border="1">
-				</c:forEach>
-			</c:if>
-		</div>
-	</c:otherwise>	
 </c:choose>
 </body>
 </html>

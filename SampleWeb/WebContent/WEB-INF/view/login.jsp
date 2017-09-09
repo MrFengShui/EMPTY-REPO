@@ -37,8 +37,9 @@
 				<div class="table-foot"><form:button>LOGIN</form:button></div>
 			</form:form>
 			<div id="login-section-link">
-				<a href="register">Register</a> <a href="#">Question</a> <a
-					href="about">About</a>
+				<a href="register">Register</a> 
+				<a href="#">Question</a> 
+				<a href="about">About</a>
 			</div>
 		</section>
 	</div>

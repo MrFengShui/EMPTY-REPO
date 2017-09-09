@@ -14,7 +14,7 @@
 		"title": "JFreeChart Demo",
 		"place": "demo",
 		"list": [
-			{"title": "JFreeChart Preview", "place": "chart?layout=mult&type=preview", "list": []},
+			{"title": "JFreeChart Preview", "place": "chart/all-chart", "list": []},
 			{
 				"title": "Bar Chart Demo",
 				"place": "",
