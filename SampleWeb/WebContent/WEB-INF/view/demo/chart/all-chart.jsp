@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../../WEB-RES/css/dark-style.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/dark-style.css"/>
 <title></title>
 </head>
 <body>
@@ -28,10 +28,17 @@
 			<div class="table-foot"><form:button>Generate</form:button></div>				
 		</form:form>
 	</section>
-	<div id="demo_chart_div">
-		<c:if test="${!empty list}">
-			<c:forEach items="${list}" var="item">
-				<img alt="image" src="${item}" width="${width}" height="${height}" border="1">
+	<div id="demo-chart-div">
+		<c:if test="${!empty chartlist}">
+			<c:forEach items="${chartlist}" var="item">
+				<section class="title-section">
+					<header class="title-header">${item.name}</header>
+					<div class="title-content">
+						<c:forEach items="${item.list}" var="list">
+							<img alt="image" src="${list}" width="${width}" height="${height}" border="1">
+						</c:forEach>
+					</div>
+				</section>
 			</c:forEach>
 		</c:if>
 	</div>

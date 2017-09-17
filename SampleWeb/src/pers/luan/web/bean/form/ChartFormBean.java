@@ -4,6 +4,7 @@ public class ChartFormBean {
 
 	private Integer count;
 	private Float minBound, maxBound;
+	private String path;
 
 	public Integer getCount() {
 		return count;
@@ -29,10 +30,18 @@ public class ChartFormBean {
 		this.maxBound = maxBound;
 	}
 
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 	@Override
 	public String toString() {
 		return "ChartFormBean [count=" + count + ", minBound=" + minBound
-						+ ", maxBound=" + maxBound + "]";
+						+ ", maxBound=" + maxBound + ", path=" + path + "]";
 	}
 	
 }

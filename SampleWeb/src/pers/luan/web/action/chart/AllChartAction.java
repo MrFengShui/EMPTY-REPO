@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pers.luan.web.bean.form.ChartFormBean;
 import pers.luan.web.tool.chart.ChartBuilder;
 import pers.luan.web.tool.chart.ChartFactory;
-import pers.luan.web.tool.chart.DataCreator;
+import pers.luan.web.tool.data.DataCreator;
 
 @Controller
 public class AllChartAction {
@@ -31,26 +31,22 @@ public class AllChartAction {
 	public void doPostForm(HttpServletRequest request,
 					@ModelAttribute("chartFormBean") ChartFormBean bean,
 					ModelMap map) {
-		int width = 560;
-		int height = 315;
+		int width = 480;
+		int height = 300;
 		int count = bean.getCount();
 		float minBound = bean.getMinBound();
 		float maxBound = bean.getMaxBound();
 
 		if (minBound < maxBound) {
 			HttpSession session = request.getSession();
+			
 			DataCreator creator = new DataCreator(count, minBound, maxBound);
 			ChartBuilder builder = new ChartBuilder(session, creator, width, height);
 			ChartFactory factory = new ChartFactory(request, builder);
-			factory.showBarChart();
-			factory.showLineChart();
-			factory.showPieChart();
-			factory.showXYChart(null);
-			factory.showXYZChart(null);
 			
 			map.addAttribute("width", width);
 			map.addAttribute("height", height);
-			map.addAttribute("list", factory.fetch());
+			map.addAttribute("chartlist", factory.produceAllCharts());
 		}
 	}
 

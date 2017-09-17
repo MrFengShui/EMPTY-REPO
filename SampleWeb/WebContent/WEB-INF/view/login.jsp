@@ -5,43 +5,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="WEB-RES/css/dark-style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/dark-style.css"/>
 <title>Login Page</title>
 </head>
 <body>
+<div class="page-container">
 	<div class="page-header">
-		<header>SAMPLE WEB - LOGIN PAGE</header>
+		<a href="login" class="page-header-logo"><img alt="" src="img/logo.png" width="75" height="75"></a>
+		<div class="page-header-text">
+			<label class="page-header-text-title title-font">SAMPLE WEB PROJECT</label>
+			<label class="page-header-text-subtitle subtitle-font">LOGIN PAGE</label>
+		</div>
 	</div>
-	<div class="page-center" style="height: 75%;">
-		<section class="form-section"
-			style="max-width: 640px; max-height: 480px;">
-			<header class="section-header">SIGN IN</header>
-			<form:form method="POST" commandName="indexBean"
-				cssClass="section-form">
-				<div class="table-row">
-					<div class="table-cell">
-						<form:label path="username">USERNAME</form:label>
-					</div>
-					<div class="table-cell">
-						<form:input path="username" style="width: 450px;" />
-					</div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell">
-						<form:label path="password">PASSWORD</form:label>
-					</div>
-					<div class="table-cell">
-						<form:password path="password" style="width: 450px;" />
-					</div>
-				</div>
-				<div class="table-foot"><form:button>LOGIN</form:button></div>
-			</form:form>
-			<div id="login-section-link">
-				<a href="register">Register</a> 
-				<a href="#">Question</a> 
-				<a href="about">About</a>
+	<div class="page-center div-center-center">
+		<form:form method="POST" commandName="indexBean" style="width: 640px;" cssClass="section-form">
+			<header class="section-form-header header-font">
+				<i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;SIGN IN
+			</header>
+			<div class="section-form-cell">
+				<form:label path="username" class="medium-text-font">USERNAME</form:label>
+				<form:input path="username"/>
 			</div>
-		</section>
+			<div class="section-form-cell">
+				<form:label path="password" class="medium-text-font">PASSWORD</form:label>
+				<form:password path="password"/>
+			</div>
+			<div class="section-form-cell"><form:button class="medium-text-font medium-border div-center-center">LOGIN</form:button></div>
+			<div class="section-form-cell" style="flex-wrap: nowrap;">
+				<a href="register" class="medium-text-font div-center-center">Register</a> 
+				<a href="question" class="medium-text-font div-center-center">Question</a> 
+				<a href="about" class="medium-text-font div-center-center">About</a>
+			</div>
+		</form:form>
 	</div>
+	<div class="page-footer"><span class="big-text-font div-center-center">Luan Songjian Copyright 2017-08-13</span></div>
+</div>
 </body>
 </html>

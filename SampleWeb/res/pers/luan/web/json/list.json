@@ -19,26 +19,24 @@
 				"title": "Bar Chart Demo",
 				"place": "",
 				"list": [
-					{"title": "Bar Chart - Random Number", "place": "chart?layout=both&type=bar&method=random", "list": []},
-					{"title": "Bar Chart - Loading File", "place": "chart?layout=both&type=bar&method=file", "list": []}
+					{"title": "Bar Chart - Random Number", "place": "chart/random-chart?type=bar-chart", "list": []},
+					{"title": "Bar Chart - Loading File", "place": "chart/loading-chart?type=bar-chart", "list": []}
 				]
 			},
 			{
 				"title": "Line Chart Demo",
 				"place": "",
 				"list": [
-					{"title": "Simple Line Chart", "place": "#", "list": []},
-					{"title": "Normal Line Chart", "place": "#", "list": []},
-					{"title": "Complex Line Chart", "place": "#", "list": []}
+					{"title": "Line Chart - Random Number", "place": "chart/random-chart?type=line-chart", "list": []},
+					{"title": "Line Chart - Loading File", "place": "chart/loading-chart?type=line-chart", "list": []}
 				]
 			},
 			{
 				"title": "Pie Chart Demo",
 				"place": "",
 				"list": [
-					{"title": "Simple Pie Chart", "place": "#", "list": []},
-					{"title": "Normal Pie Chart", "place": "#", "list": []},
-					{"title": "Complex Pie Chart", "place": "#", "list": []}
+					{"title": "Pie Chart - Random Number", "place": "chart/random-chart?type=pie-chart", "list": []},
+					{"title": "Pie Chart - Loading File", "place": "chart/loading-chart?type=pie-chart", "list": []}
 				]
 			},
 			{

@@ -3,7 +3,7 @@
 
 <mapper namespace="pers.luan.web.map.SampleMapper">
 
-	<resultMap type="pers.luan.web.bean.SampleBean" id="sampleMap">
+	<resultMap type="pers.luan.web.bean.ChartLayoutBean" id="sampleMap">
 		<result property="sampleID" column="SAMPLE_ID" javaType="java.lang.Integer"/>
 		<result property="sampleName" column="SAMPLE_NAME" javaType="java.lang.String"/>
 	</resultMap>

@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: 'HEADER_FONT';
+	src: url('../../font/Fruktur.ttf');
+}
+
+.title-font {
+	color: rgb(234, 234, 234);
+	font-family: 'HEADER_FONT';
+	font-size: 24pt;
+	font-weight: bold;
+}
+
+.subtitle-font {
+	color: rgb(234, 234, 234);
+	font-family: 'HEADER_FONT';
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+.header-font {
+	color: rgb(234, 234, 234);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+.big-text-font {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 18pt;
+	font-weight: normal;
+}
+
+.medium-text-font {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14pt;
+	font-weight: normal;
+}
+
+.small-text-font {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+}
+
+.thin-border {
+	border-color: rgb(32, 32, 32);
+	border-width: thin;
+	border-style: solid;
+}
+
+.thin-border-shadow {
+	border-color: rgb(32, 32, 32);
+	border-width: thin;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.medium-border {
+	border-color: rgb(32, 32, 32);
+	border-width: medium;
+	border-style: solid;
+}
+
+.medium-border-shadow {
+	border-color: rgb(32, 32, 32);
+	border-width: medium;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.thick-border {
+	border-color: rgb(32, 32, 32);
+	border-width: thick;
+	border-style: solid;
+}
+
+.thick-border-shadow {
+	border-color: rgb(32, 32, 32);
+	border-width: thick;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.div-top-center {
+	align-items: start;
+	display: flex;
+	justify-content: center;
+}
+
+.div-top-center {
+	align-items: end;
+	display: flex;
+	justify-content: center;
+}
+
+.div-center-center {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.div-left-center {
+	align-items: center;
+	display: flex;
+	justify-content: start;
+}
+
+.div-right-center {
+	align-items: center;
+	display: flex;
+	justify-content: end;
+}

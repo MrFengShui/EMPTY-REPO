@@ -2,6 +2,7 @@ package pers.luan.web.tool.tag;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Stack;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -11,11 +12,8 @@ import pers.luan.web.bean.TreeNodeBean;
 
 public class TreeTag extends TagSupport {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7626707286430021271L;
-	
+
 	private List<TreeNodeBean> treeList;
 
 	public List<TreeNodeBean> getTreeList() {
@@ -29,7 +27,7 @@ public class TreeTag extends TagSupport {
 	@Override
 	public int doEndTag() throws JspException {
 		JspWriter writer = this.pageContext.getOut();
-		
+
 		if (treeList == null || treeList.isEmpty()) {
 			try {
 				writer.println("Not Found");
@@ -38,17 +36,26 @@ public class TreeTag extends TagSupport {
 				e.printStackTrace();
 			}
 		}
-		
+
+		int size = 0;
+
+		for (TreeNodeBean treeItem : treeList) {
+			int temp = measure(treeItem);
+
+			if (size < temp) {
+				size = temp;
+			}
+		}
+
 		for (TreeNodeBean bean : treeList) {
 			try {
-				writer.println("<li class='index-tree-item'>");
-				writeDOMTree(bean, writer, "");
+				writer.println("<li style='width: " + (size + 25) + "%;'>");
+				writeDOMTree(bean, writer, "", 1);
 				writer.println("</li>");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
-		}		
+		}
 		return SKIP_BODY;
 	}
 
@@ -62,29 +69,61 @@ public class TreeTag extends TagSupport {
 		super.release();
 		this.treeList = null;
 	}
-	
-	private void writeDOMTree(TreeNodeBean node, JspWriter writer, String space) {
+
+	private int measure(TreeNodeBean node) {
+		String space = "";
+		int size = 0;
+		Stack<TreeNodeBean> stack = new Stack<>();
+		stack.push(node);
+
+		while (!stack.isEmpty()) {
+			TreeNodeBean bean = stack.pop();
+			String text = space + bean.getTitle();
+
+			if (text.length() > size) {
+				size = text.length();
+			}
+
+			for (TreeNodeBean item : bean.getList()) {
+				if (!stack.contains(item)) {
+					stack.push(item);
+				}
+			}
+
+			space += "   ";
+		}
+		return size;
+	}
+
+	private void writeDOMTree(TreeNodeBean node, JspWriter writer, String space,
+					int depth) {
 		try {
 			List<TreeNodeBean> list = node.getList();
-			
+
 			if (list.isEmpty()) {
-				writer.println("<a href='demo/" + node.getPlace() + "' target='page_frame' class='index-item-link'>");
-				writer.println(space + "<i class='fa fa-file-o' aria-hidden='true'>&nbsp;&nbsp;" + node.getTitle() + "</i>");
-				writer.println("</a>");
-			} else {
-				writer.println("<div class='index-node-div'>");
-				writer.println("<div class='index-item-header'>");
+				writer.println("<div class='tree-body'>");
+				writer.println("<a href='demo/" + node.getPlace()
+								+ "' target='page_frame' class='tree-leaf small-text-font'>");
 				writer.println(space);
-				writer.println("<button class='index-item-button'><i class='fa fa-folder-o' aria-hidden='true'></i></button>");
-				writer.println("<header>&nbsp;&nbsp;" + node.getTitle() + "</header>");
+				writer.println("<i class='fa fa-flag' aria-hidden='true'></i>&nbsp;"
+								+ node.getTitle());
+				writer.println("</a>");
 				writer.println("</div>");
-				writer.println("<div class='index-item-content'>");
-				
+			} else {
+				writer.println("<div class='tree-body'>");
+				writer.println("<a href='#' class='tree-node small-text-font'>");
+				writer.println(space);
+				writer.println("<i class='fa fa-plus-square-o' aria-hidden='true'></i>&nbsp;"
+								+ node.getTitle());
+				writer.println("</a>");
+				writer.println("<div class='tree-nodes'>");
+
 				if (list != null) {
-					space += "&nbsp;&nbsp;&nbsp;&nbsp;";
-					
+					space += "&nbsp;&nbsp;&nbsp;";
+					depth++;
+
 					for (TreeNodeBean item : list) {
-						writeDOMTree(item, writer, space);
+						writeDOMTree(item, writer, space, depth);
 					}
 				}
 				

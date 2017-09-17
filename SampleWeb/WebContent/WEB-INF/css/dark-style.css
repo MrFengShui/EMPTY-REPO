@@ -1,0 +1,297 @@
+@CHARSET "UTF-8";
+@IMPORT "dark/tag.css";
+@IMPORT "dark/common.css";
+@IMPORT "dark/component.css";
+
+.page-container {
+	background-image: url('../img/dark_bg.png');
+	background-repeat: repeat;
+	height: 100%;
+}
+
+.page-header {
+	display: inline-flex;
+	width: 100%;
+	height: 80px;
+}
+
+.page-header-logo {
+	margin: 5px;
+	width: 80px;
+	height: 100%;
+}
+
+.page-header-logo:hover {
+	cursor: pointer;
+}
+
+.page-header-text {
+	display: inline-flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+}
+
+.page-header-text-title {
+	width: 100%;
+	height: auto;
+}
+
+.page-header-text-subtitle {
+	width: 100%;
+	height: auto;
+}
+
+.page-header-nav {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+}
+
+.nav-menu-body {
+	width: 100%;
+	height: auto;
+}
+
+.profile-section {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 150px;	
+}
+
+.profile-section-icon {
+	color: rgb(234, 234, 234);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 36pt;
+	font-weight: bold;
+	width: 100%;
+}
+
+.profile-section-text {
+	color: rgb(234, 234, 234);
+	display: flex;
+	width: 100%;
+	height: auto;
+}
+
+.profile-section-text a {
+	color: rgb(234, 234, 234);
+	width: auto;
+	height: 100%;
+}
+
+.profile-section-text a:hover {
+	cursor: pointer;
+}
+
+.page-center {
+	height: calc(100% - 127px);
+}
+
+.page-footer {
+	width: 100%;
+	height: 40px;
+}
+
+.page-footer span {
+	color: rgb(234, 234, 234);
+	width: 100%;
+	height: 100%;
+}
+
+.date-time-text {
+	color: rgb(234, 234, 234);
+	width: 100%;
+	height: auto;
+}
+
+.date-time-text:hover {
+	background-color: transparent;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.section-form {
+	background-color: rgb(234, 234, 234);
+}
+
+.section-form-header {
+	background-color: rgb(32, 32, 32);
+	padding: 5px;
+}
+
+.section-form-cell {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	height: 50px;
+}
+
+.tab-pane {
+	background-color: rgb(32, 32, 32);
+	border-color: rgb(32, 32, 32);
+	border-width: medium;
+	border-style: solid;
+	width: 100%;
+	height: 100%;
+}
+
+.tab-title {
+	display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.tab-title li {
+	align-items: center;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.tab-title li a {
+	color: rgb(234, 234, 234);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 16pt;
+	font-weight: normal;
+}
+
+.tab-title li a:hover {
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.tab-content {
+	background-color: rgb(234, 234, 234);
+	width: 100%;
+	height: calc(100% - 40px);
+}
+
+.key-value-table {
+	border-collapse: collapse;
+	width: 100%;
+	height: auto;
+}
+
+.key-value-table td {
+	background-color: rgb(234, 234, 234);
+	color: rgb(32, 32, 32);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 18pt;
+	font-weight: normal;
+	padding: 5px;
+}
+
+.table-key {
+	width: 25%;
+	text-align: center;
+}
+
+.table-value {
+	width: 75%;
+	padding-left: 5px;
+}
+
+.demo-chart-show {
+	display: flex;
+	flex-wrap: nowrap;
+	width: auto;
+}
+
+.demo-chart-body {
+	display: block;
+}
+
+.demo-chart-cell {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.file-info-body {
+	background-color: rgb(32, 32, 32);
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+	width: 1070px;
+}
+
+.file-info-title {
+	color: rgb(234, 234, 234);
+	font-family: 'HEADER_FONT';
+	font-size: 24pt;
+	font-weight: bold;
+	padding: 5px;
+	width: 100%;
+	height: 40px;
+}
+
+.file-info-table {
+	width: 100%;
+	height: auto;
+}
+
+.file-info-table td {
+	background-color: rgb(234, 234, 234);
+	color: rgb(32, 32, 32);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12pt;
+	font-weight: normal;
+	padding: 5px;
+}
+
+.about-edit {
+	background-color: rgb(234, 234, 234);
+	color: rgb(32, 32, 32);
+}
+
+.about-edit:hover {
+	background-color: rgb(32, 32, 32);
+	color: rgb(234, 234, 234);
+}
+
+.modal-dialog-backbone {
+	background-color: rgba(0, 0, 0, 0.75);
+	display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.modal-dialog-title {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	height: auto;
+}
+
+.modal-dialog-title button {
+	background-color: transparent;
+	border: 0;
+	color: rgb(234, 234, 234);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 24pt;
+	font-weight: bold;
+	margin: 5px;
+	width: auto;
+	height: auto;
+}
+
+.modal-dialog-title button:hover {
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+	cursor: pointer;
+}
+
+.modal-dialog-content {
+	height: auto;
+	padding: 5px;
+}

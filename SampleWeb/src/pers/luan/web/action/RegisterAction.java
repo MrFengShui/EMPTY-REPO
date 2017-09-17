@@ -32,6 +32,7 @@ public class RegisterAction {
 		List<String> genderList = new ArrayList<>();
 		genderList.add("Male");
 		genderList.add("Female");
+		genderList.add("None");
 		model.addAttribute("genders", genderList);
 
 		List<String> nationList = new ArrayList<>();

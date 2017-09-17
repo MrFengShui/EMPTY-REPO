@@ -19,7 +19,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
-import pers.luan.web.bean.SampleBean;
+import pers.luan.web.bean.ChartLayoutBean;
 import pers.luan.web.bean.TreeNodeBean;
 import pers.luan.web.bean.map.UserSignBean;
 import pers.luan.web.db.SampleDB;
@@ -51,9 +51,9 @@ public class UnitTest {
 	public void mybatisTest() throws IOException {
 		session = SampleDB.fetchSQLSession();
 		SampleMapper mapper = session.getMapper(SampleMapper.class);
-		List<SampleBean> list = mapper.findAllSamples();
+		List<ChartLayoutBean> list = mapper.findAllSamples();
 		
-		for (SampleBean item : list) {
+		for (ChartLayoutBean item : list) {
 			System.out.println(item.toString());
 		}
 		

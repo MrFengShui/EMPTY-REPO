@@ -20,6 +20,8 @@ import org.jfree.data.xy.XYZDataset;
 
 import pers.luan.web.tool.Point2D;
 import pers.luan.web.tool.Point3D;
+import pers.luan.web.tool.data.DataCreator;
+import pers.luan.web.tool.data.DatasetFactory;
 
 public class ChartBuilder {
 

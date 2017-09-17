@@ -5,72 +5,76 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="WEB-RES/css/dark-style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/dark-style.css" />
 <title>Register Page</title>
 </head>
-<body>
+<body style="height: auto;">
+<div class="page-container">
 	<div class="page-header">
-		<header>SAMPLE WEB - REGISTER PAGE</header>
-	</div>
-	<div class="page-center">
-		<div class="form-section" style="max-width: 800px;">
-			<div style="display: inline-flex; width: 100%;">
-				<header class="section-header">SIGN UP</header>
-				<a href="login" id="register-header-link"
-					style="width: 10%; height: 50px;">Login</a>
-			</div>
-			<form:form method="POST" commandName="registerBean" cssClass="section-form">
-				<div class="table-row">
-					<div class="table-cell"><form:label path="firstname">FIRSTNAME</form:label></div>
-					<div class="table-cell"><form:input path="firstname" style="width: 500px;"/></td></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="lastname">LASTNAME</form:label></div>
-					<div class="table-cell"><form:input path="lastname" style="width: 500px;"/></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="dateOfBirth">DATE OF BIRTH</form:label></div>
-					<div class="table-cell"><form:input type="date" path="dateOfBirth" style="width: 500px;"/></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="email">EMAIL</form:label></div>
-					<div class="table-cell"><form:input type="email" path="email" style="width: 500px;"/></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell" style="height: 50px;"><form:label path="gender">GENDER</form:label></div>
-					<div class="table-cell" style="display: flex;"><form:radiobuttons path="gender" items="${genders}"/></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="nation">NATIONALITY</form:label></div>
-					<div class="table-cell">
-						<form:select path="nation">
-							<form:option value="None" style="width: 500px;">----- Select -----</form:option>
-							<form:options items="${nations}" />
-						</form:select>
-					</div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="username">USERNAME</form:label></div>
-					<div class="table-cell"><form:input path="username" style="width: 500px;"/></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="password">PASSWORD</form:label></div>
-					<div class="table-cell"><form:password path="password" style="width: 500px;"/></div>
-				</div>
-				<div class="table-row">
-					<div class="table-cell"><form:label path="confirmPassword">CONFIRM PASSWORD</form:label></div>
-					<div class="table-cell"><form:password path="confirmPassword" style="width: 500px;"/></div>
-				</div>
-				<div class="table-foot" style="height: auto;">
-					<textarea style="height: 360px;" readonly>${contract}</textarea>
-					<form:label path="agree">
-						<form:checkbox path="agree" value="true" style="width: 50px;" />
-						I have read and agreed this agreement.
-					</form:label>
-					<form:button style="height: 50px;">REGISTER</form:button>
-				</div>
-			</form:form>
+		<a href="login" class="page-header-logo"><img alt="" src="img/logo.png" width="75" height="75"></a>
+		<div class="page-header-text">
+			<label class="page-header-text-title title-font">SAMPLE WEB PROJECT</label>
+			<label class="page-header-text-subtitle subtitle-font">REGISTER PAGE</label>
 		</div>
 	</div>
+	<div class="page-center div-center-center" style="padding-top: 10px;padding-bottom: 10px;">
+		<form:form method="POST" commandName="registerBean" style="width: 880px;" cssClass="section-form">
+			<header class="section-form-header header-font">
+				<i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;SIGN UP
+			</header>
+			<div class="section-form-cell">
+				<form:label path="firstname" class="medium-text-font">FIRSTNAME</form:label>
+				<form:input path="firstname"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="lastname" class="medium-text-font">LASTNAME</form:label>
+				<form:input path="lastname"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="dateOfBirth" class="medium-text-font">DATE OF BIRTH</form:label>
+				<form:input type="date" path="dateOfBirth"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="email" class="medium-text-font">EMAIL</form:label>
+				<form:input type="email" path="email"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="gender" class="medium-text-font">GENDER</form:label>
+				<form:radiobuttons path="gender" items="${genders}"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="nation" class="medium-text-font">NATIONALITY</form:label>
+				<form:select path="nation">
+					<form:option value="None">----- Select -----</form:option>
+					<form:options items="${nations}" />
+				</form:select>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="username" class="medium-text-font">USERNAME</form:label>
+				<form:input path="username"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="password" class="medium-text-font">PASSWORD</form:label>
+				<form:password path="password"/>
+			</div>
+			<div class="section-form-cell">
+				<form:label path="confirmPassword" class="medium-text-font">CONFIRM PASSWORD</form:label>
+				<form:password path="confirmPassword"/>
+			</div>			
+			<div class="section-form-cell" style="height: auto;">
+				<textarea class="medium-border small-text-font" style="height: 360px;" readonly>${contract}</textarea>
+			</div>			
+			<div class="section-form-cell">
+				<form:label path="agree" class="medium-text-font" style="width: 100%;">
+					<form:checkbox path="agree" value="true" style="width: 50px;"/>
+					I have read and agreed this agreement.
+				</form:label>
+			</div>
+			<div class="section-form-cell"><form:button class="medium-text-font" style="height: 50px;">REGISTER</form:button></div>
+		</form:form>
+	</div>
+	<div class="page-footer"><span class="medium-text-font div-center-center">Luan Songjian Copyright 2017-08-13</span></div>
+</div>
 </body>
 </html>
