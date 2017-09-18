@@ -48,45 +48,34 @@
 .menu-bar {
 	display: flex;
 	flex-wrap: nowrap;
-	list-style-type: none;
 	margin: 0 auto;
 	padding: 0;
 	width: 100%;
-	height: auto;
+	height: 40px;
 }
 
-.menu-box {
-	align-items: center;
-    display: inline-block;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
+.menu-title, .menu-item-text {
+	color: rgb(234, 234, 234);
+	min-width: 120px;
+	width: auto;
+	white-space: nowrap;
+}
+
+.menu-title:hover, .menu-item-text:hover {
+	color: rgb(234, 234, 234);
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.menu-items {
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+	display: none;
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	position: absolute;
+	z-index: 10;
 }
 
 .menu-item {
-	color: rgb(234, 234, 234);
-}
-
-.menu-item:hover {
-	color: rgb(234, 234, 234);
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-}
-
-.menu-list {
-	background-color: rgb(32, 32, 32);
-	display: block;
-	list-style-type: none;
-	margin: 0 auto;
-	padding: 0;
-	width: 100%;
-	height: auto;
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-}
-
-.menu-list-item {
-	align-items: center;
-    display: inline-block;
-    margin: 0 auto;
-    width: 100%;
-    height: 40px;
+	height: 40px;
 }

@@ -10,98 +10,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test Page</title>
 </head>
-<body>
-<ul class="tree-container" style="background-color: black;">
-	<li>
-	<div class="tree-body">
-		<a href="#" class="tree-node">
-			<i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp;Title 1
+<body style="background-color: blue;">
+<nav class="menu-bar">
+	<a href="#" class="menu-title medium-text-font div-center-center">
+		<i class="fa fa-life-ring" aria-hidden="true"></i>
+		&nbsp;MENU-1
+	</a>
+	<a href="#" class="menu-title medium-text-font div-center-center">
+		<i class="fa fa-life-ring" aria-hidden="true"></i>
+		&nbsp;MENU-2
+	</a>
+	<a href="#" class="menu-title medium-text-font div-center-center">
+		<i class="fa fa-life-ring" aria-hidden="true"></i>
+		&nbsp;MENU-3
+	</a>
+	<span style="width: 100%;"></span>
+</nav>
+<ul class="menu-items">
+	<li class="menu-item">
+		<a href="#" class="menu-item-text medium-text-font div-center-center">
+			ITEM-1-1&nbsp;
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
 		</a>
-		<div class="tree-nodes">
-			<a href="#" class="tree-leaf">
-				&nbsp;&nbsp;&nbsp;
-				<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title 1-1
-			</a>
-			<a href="#" class="tree-leaf">
-				&nbsp;&nbsp;&nbsp;
-				<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title 1-2
-			</a>
-			<a href="#" class="tree-leaf">
-				&nbsp;&nbsp;&nbsp;
-				<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title 1-3
-			</a>
-		</div>
-	</div>
 	</li>
-	<li>
-	<div class="tree-body">
-		<a href="#" class="tree-node">
-			<i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp;Title
+	<li class="menu-item">
+		<a href="#" class="menu-item-text medium-text-font div-center-center">
+			ITEM-1-2&nbsp;
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
 		</a>
-		<div class="tree-nodes">
-			<div class="tree-body">
-				<a href="#" class="tree-node">
-					&nbsp;&nbsp;&nbsp;
-					<i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp;Title
-				</a>
-				<div class="tree-nodes">
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-				</div>
-			</div>
-			<div class="tree-body">
-				<a href="#" class="tree-node">
-					&nbsp;&nbsp;&nbsp;
-					<i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp;Title
-				</a>
-				<div class="tree-nodes">
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-				</div>
-			</div>
-			<div class="tree-body">
-				<a href="#" class="tree-node">
-					&nbsp;&nbsp;&nbsp;
-					<i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp;Title
-				</a>
-				<div class="tree-nodes">
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-					<a href="#" class="tree-leaf">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Title
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+	</li>
+	<li class="menu-item">
+		<a href="#" class="menu-item-text medium-text-font div-center-center">
+			ITEM-1-3&nbsp;
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
 	</li>
 </ul>
 </body>
+<script src="js/execute.js" type="text/javascript"></script>
+<script src="js/component.js" type="text/javascript"></script>
 </html>
