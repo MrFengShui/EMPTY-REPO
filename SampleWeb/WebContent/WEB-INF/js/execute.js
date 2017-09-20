@@ -1,4 +1,10 @@
 window.addEventListener('DOMContentLoaded', function(event) {
+	var body = document.querySelector('body');
+	
+	if (body) {
+		body.addEventListener('click', hide_menu);
+	}
+	
 	var nodes = document.getElementsByClassName("tree-node");
 	
 	if (nodes) {
@@ -19,17 +25,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
 	
 	if (titles) {
 		for (var i = 0; i < titles.length; i ++) {
-			titles[i].addEventListener('mouseover', show_submenu);
-			titles[i].addEventListener('mouseout', hide_submenu);
-		}
-	}
-	
-	var items = document.querySelectorAll('.menu-items');
-	
-	if (items) {
-		for (var i = 0; i < items.length; i ++) {
-			items[i].addEventListener('mouseover', show_submenu);
-			items[i].addEventListener('mouseout', hide_submenu);
+			titles[i].addEventListener('mouseover', show_menu);
 		}
 	}
 });

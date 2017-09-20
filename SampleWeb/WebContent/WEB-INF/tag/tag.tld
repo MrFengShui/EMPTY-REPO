@@ -20,5 +20,17 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+	
+	<tag>
+		<name>menu</name>
+		<tag-class>pers.luan.web.tool.tag.MenuTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>menuList</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
  
  </taglib>

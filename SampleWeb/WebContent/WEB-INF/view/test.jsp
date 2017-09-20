@@ -12,40 +12,33 @@
 </head>
 <body style="background-color: blue;">
 <nav class="menu-bar">
-	<a href="#" class="menu-title medium-text-font div-center-center">
-		<i class="fa fa-life-ring" aria-hidden="true"></i>
-		&nbsp;MENU-1
-	</a>
-	<a href="#" class="menu-title medium-text-font div-center-center">
-		<i class="fa fa-life-ring" aria-hidden="true"></i>
-		&nbsp;MENU-2
-	</a>
-	<a href="#" class="menu-title medium-text-font div-center-center">
-		<i class="fa fa-life-ring" aria-hidden="true"></i>
-		&nbsp;MENU-3
-	</a>
+	<c:forEach items="${root}" var="item">
+		<a href="#" class="menu-title medium-text-font div-center-center" id="${item.ID}">
+			<i class="fa fa-life-ring" aria-hidden="true"></i>
+			&nbsp;${item.text}
+		</a>
+	</c:forEach>
 	<span style="width: 100%;"></span>
 </nav>
-<ul class="menu-items">
-	<li class="menu-item">
-		<a href="#" class="menu-item-text medium-text-font div-center-center">
-			ITEM-1-1&nbsp;
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>
-		</a>
-	</li>
-	<li class="menu-item">
-		<a href="#" class="menu-item-text medium-text-font div-center-center">
-			ITEM-1-2&nbsp;
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>
-		</a>
-	</li>
-	<li class="menu-item">
-		<a href="#" class="menu-item-text medium-text-font div-center-center">
-			ITEM-1-3&nbsp;
-			<i class="fa fa-chevron-right" aria-hidden="true"></i>
-		</a>
-	</li>
-</ul>
+<c:forEach items="${nodes}" var="node">
+	<div class="menu-list" id="${node.ID}-list">
+		<c:forEach items="${node.list}" var="item">
+			<c:choose>
+				<c:when test="${item.type == 'item'}">
+					<a href="${item.link}" class="menu-item medium-text-font div-left-center" id="${item.ID}">
+						${item.icon}&nbsp;${item.text}&nbsp;
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a href="${item.link}" class="menu-item medium-text-font div-left-center" id="${item.ID}">
+						${item.icon}&nbsp;${item.text}&nbsp;
+						<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+	</div>
+</c:forEach>
 </body>
 <script src="js/execute.js" type="text/javascript"></script>
 <script src="js/component.js" type="text/javascript"></script>

@@ -6,16 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class GeneralAction {
 
-	
-	
 	@RequestMapping("/")
 	public String initial() {
 		return "redirect:login";
-	}
-
-	@RequestMapping("/test")
-	public String test() {
-		return "test";
 	}
 
 }

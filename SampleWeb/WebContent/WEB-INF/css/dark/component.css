@@ -54,19 +54,20 @@
 	height: 40px;
 }
 
-.menu-title, .menu-item-text {
+.menu-title {
 	color: rgb(234, 234, 234);
 	min-width: 120px;
 	width: auto;
 	white-space: nowrap;
 }
 
-.menu-title:hover, .menu-item-text:hover {
+.menu-title:hover, .menu-item:hover {
 	color: rgb(234, 234, 234);
 	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
 }
 
-.menu-items {
+.menu-list {
+	background-color: rgb(32, 32, 32);
 	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
 	display: none;
 	list-style-type: none;
@@ -77,5 +78,10 @@
 }
 
 .menu-item {
+	color: rgb(234, 234, 234);
+	min-width: 120px;
+	width: auto;
 	height: 40px;
+	padding: 5px;
+	white-space: nowrap;
 }

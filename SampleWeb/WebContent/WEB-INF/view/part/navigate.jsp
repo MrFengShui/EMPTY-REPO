@@ -10,29 +10,35 @@
 <div class="page-header-nav">
 	<a href="#" class="date-time-text big-text-font div-center-center"></a>
 	<nav class="menu-bar">
-		<div class="menu-box">
-			<a href="#" class="menu-item medium-text-font div-center-center">
-				<i class="fa fa-file-o" aria-hidden="true"></i>
-				&nbsp;FILE
-			</a>
-		</div>
-		<div class="menu-box">
-			<a href="#" class="menu-item medium-text-font div-center-center">
-				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				&nbsp;EDIT
-			</a>
-		</div>
-		<div class="menu-box">
-			<a href="#" class="menu-item medium-text-font div-center-center">
+		<c:forEach items="${root}" var="item">
+			<a href="#" class="menu-title medium-text-font div-center-center" id="${item.ID}">
 				<i class="fa fa-life-ring" aria-hidden="true"></i>
-				&nbsp;HELP
+				&nbsp;${item.text}
 			</a>
-			<ul class="menu-list">
-				<li class="menu-list-item"><a href="about" class="menu-item medium-text-font div-center-center">ABOUT</a></li>
-			</ul>
-		</div>
+		</c:forEach>
 		<span style="width: 100%;"></span>
 	</nav>
+	<c:forEach items="${nodes}" var="node">
+		<div class="menu-list" id="${node.ID}-list">
+			<c:forEach items="${node.list}" var="item">
+				<c:choose>
+					<c:when test="${item.type == 'item'}">
+						<a href="${item.link}" class="menu-item medium-text-font div-left-center" id="${item.ID}">
+							${item.icon}&nbsp;${item.text}&nbsp;
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a href="${item.link}" class="menu-item medium-text-font div-left-center" id="${item.ID}">
+							${item.icon}&nbsp;${item.text}&nbsp;
+							<i class="fa fa-chevron-right" aria-hidden="true"></i>
+						</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</div>
+	</c:forEach>
 </div>
 </body>
+<script src="js/execute.js" type="text/javascript"></script>
+<script src="js/component.js" type="text/javascript"></script>
 </html>
