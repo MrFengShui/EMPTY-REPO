@@ -19,10 +19,24 @@
 	font-weight: bold;
 }
 
-.header-font {
+.big-header-font {
 	color: rgb(234, 234, 234);
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 18pt;
+	font-weight: bold;
+}
+
+.medium-header-font {
+	color: rgb(234, 234, 234);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.medium-header-font {
+	color: rgb(234, 234, 234);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10pt;
 	font-weight: bold;
 }
 

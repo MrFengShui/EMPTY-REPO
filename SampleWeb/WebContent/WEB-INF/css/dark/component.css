@@ -1,4 +1,192 @@
 @CHARSET "UTF-8";
+/**/
+.accordian-panel {
+	display: block;
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 280px;
+	height: 100%;
+	overflow: auto;
+}
+
+.title-panel {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.title-head-panel {
+	background-color: rgb(32, 32, 32);
+	width: 100%;
+	height: 30px;
+}
+
+.title-head-panel header {
+	padding-left: 5px;
+	width: 100%;
+	height: 100%;
+}
+
+.title-head-panel button {
+	background-color: transparent;
+	border-width: 0;
+	color: rgb(234, 234, 234);
+	width: auto;
+	height: 100%;
+}
+
+.title-head-panel button:hover {
+	background-color: rgb(234, 234, 234);
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+	color: rgb(32, 32, 32);
+}
+
+.title-body-panel {
+	display: none;
+	width: 100%;
+	height: calc(100% - 30px);
+}
+/**/
+.image-slide {
+	background-color: rgb(234, 234, 234);
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 5px;
+	width: 100%;
+	height: 100%;
+}
+
+.image-content {
+	width: 100%;
+	height: 100%;
+}
+
+.image-content img {
+	object-fit:cover;
+}
+
+.image-content img:hover {
+	box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+	cursor: pointer;
+}
+
+.image-items {
+	box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+	flex-wrap: wrap;
+	width: 256px;
+	height: 100%;
+	overflow: auto;
+}
+
+.image-items::-webkit-scrollbar {
+	width: 8px;
+}
+
+.image-items::-webkit-scrollbar-track {
+	-webkit-box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+}
+
+.image-items::-webkit-scrollbar-thumb {
+	background-color: rgb(32, 32, 32);
+}
+
+.image-item {
+	margin: 5px;
+	padding: 5px;
+}
+
+.image-item:hover {
+	background-color: rgb(32, 32, 32);
+	cursor: pointer;
+}
+/**/
+.menu-bar {
+	display: flex;
+	flex-wrap: nowrap;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	height: 40px;
+}
+
+.menu-title {
+	color: rgb(234, 234, 234);
+	min-width: 120px;
+	width: auto;
+	white-space: nowrap;
+}
+
+.menu-title:hover, .menu-item:hover {
+	color: rgb(234, 234, 234);
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.menu-list {
+	background-color: rgb(32, 32, 32);
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+	display: none;
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+}
+
+.menu-item {
+	color: rgb(234, 234, 234);
+	min-width: 120px;
+	width: auto;
+	height: 40px;
+	padding: 5px;
+	white-space: nowrap;
+}
+/**/
+.tabbed-panel {
+	width: 100%;
+	height: 100%;
+}
+
+.tabbed-panel-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 40px;
+}
+
+.tabbed-panel-items ins {
+	text-decoration: none;
+}
+
+.tabbed-panel-item {
+	align-items: center;
+	background-color: rgb(234, 234, 234);
+	border-color: rgb(32, 32, 32);
+	border-style: solid;
+	border-width: medium medium 0 medium;
+	border-radius: 10px 10px 0 0;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100% - 4px);
+}
+
+.tabbed-panel-item a {
+	color: rgb(32, 32, 32);
+}
+
+.tabbed-panel-item a:hover {
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.tabbed-panel-content {
+	background-color: rgb(32, 32, 32);
+	width: auto;
+	height: calc(100% - 40px);
+}
+/**/
 .tree-container {
 	display: block;
 	list-style-type: none;
@@ -43,45 +231,4 @@
 	display: none;
 	flex-wrap: wrap;
 	width: 100%;
-}
-/**/
-.menu-bar {
-	display: flex;
-	flex-wrap: nowrap;
-	margin: 0 auto;
-	padding: 0;
-	width: 100%;
-	height: 40px;
-}
-
-.menu-title {
-	color: rgb(234, 234, 234);
-	min-width: 120px;
-	width: auto;
-	white-space: nowrap;
-}
-
-.menu-title:hover, .menu-item:hover {
-	color: rgb(234, 234, 234);
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-}
-
-.menu-list {
-	background-color: rgb(32, 32, 32);
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-	display: none;
-	list-style-type: none;
-	margin: 0 auto;
-	padding: 0;
-	position: absolute;
-	z-index: 10;
-}
-
-.menu-item {
-	color: rgb(234, 234, 234);
-	min-width: 120px;
-	width: auto;
-	height: 40px;
-	padding: 5px;
-	white-space: nowrap;
 }

@@ -11,21 +11,21 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import pers.luan.web.bean.TreeNodeBean;
+import pers.luan.web.bean.tag.TreeTagBean;
 
 public class TreeBuilder {
 	
 	private Reader reader;
 
-	public List<TreeNodeBean> parse(String path) {
+	public List<TreeTagBean> parse(String path) {
 		try {
 			reader = new FileReader(path);
 			JSONParser parser = new JSONParser();
 			JSONObject json = (JSONObject) parser.parse(reader);
-			List<TreeNodeBean> list = new ArrayList<>();
+			List<TreeTagBean> list = new ArrayList<>();
 			
 			for (Object key : json.keySet()) {
-				TreeNodeBean bean = buildTree(json, key.toString());
+				TreeTagBean bean = buildTree(json, key.toString());
 				list.add(bean);
 			}
 			
@@ -45,8 +45,8 @@ public class TreeBuilder {
 		return null;
 	}
 	
-	public TreeNodeBean buildTree(JSONObject json, String key) {
-		TreeNodeBean node = new TreeNodeBean();
+	public TreeTagBean buildTree(JSONObject json, String key) {
+		TreeTagBean node = new TreeTagBean();
 		JSONObject rootJSON = (JSONObject) json.get(key);
 		String title = rootJSON.get("title").toString();
 		String place = rootJSON.get("place").toString();
@@ -57,16 +57,16 @@ public class TreeBuilder {
 		return node;
 	}
 
-	private void recursiveTree(TreeNodeBean node, JSONArray array) {
+	private void recursiveTree(TreeTagBean node, JSONArray array) {
 		if (array != null) {
-			List<TreeNodeBean> list = new ArrayList<>();
+			List<TreeTagBean> list = new ArrayList<>();
 			
 			for (int i = 0; i < array.size(); i ++) {
 				JSONObject json = (JSONObject) array.get(i);
 				String title = json.get("title").toString();
 				String place = json.get("place").toString();
 				JSONArray items = (JSONArray) json.get("list");
-				TreeNodeBean item = new TreeNodeBean();
+				TreeTagBean item = new TreeTagBean();
 				item.setTitle(title);
 				item.setPlace(place);
 				list.add(item);
@@ -77,14 +77,14 @@ public class TreeBuilder {
 		}
 	}
 	
-	public void printTree(TreeNodeBean node, String space) {
+	public void printTree(TreeTagBean node, String space) {
 		System.out.println(space + "|--" + node.getTitle());
-		List<TreeNodeBean> list = node.getList();
+		List<TreeTagBean> list = node.getList();
 		
 		if (list != null) {
 			space += "   ";
 			
-			for (TreeNodeBean item : list) {
+			for (TreeTagBean item : list) {
 				printTree(item, space);
 			}
 		}

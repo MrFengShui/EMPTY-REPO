@@ -26,7 +26,7 @@ public class RegisterAction {
 		String path = getClass()
 						.getResource("/pers/luan/web/file/agreement.txt")
 						.toExternalForm();
-		String content = FileIO.read(path.replace("file:", ""));
+		String content = FileIO.readAsString(path.replace("file:", ""));
 		model.addAttribute("contract", content);
 
 		List<String> genderList = new ArrayList<>();

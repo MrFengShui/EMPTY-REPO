@@ -8,38 +8,30 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import pers.luan.web.bean.TreeNodeBean;
+import pers.luan.web.bean.tag.TreeTagBean;
 
 public class TreeTag extends TagSupport {
 
 	private static final long serialVersionUID = -7626707286430021271L;
 
-	private List<TreeNodeBean> treeList;
+	private JspWriter writer;
+	
+	private List<TreeTagBean> treeList;
 
-	public List<TreeNodeBean> getTreeList() {
+	public List<TreeTagBean> getTreeList() {
 		return treeList;
 	}
 
-	public void setTreeList(List<TreeNodeBean> treeList) {
+	public void setTreeList(List<TreeTagBean> treeList) {
 		this.treeList = treeList;
 	}
 
 	@Override
 	public int doEndTag() throws JspException {
-		JspWriter writer = this.pageContext.getOut();
-
-		if (treeList == null || treeList.isEmpty()) {
-			try {
-				writer.println("Not Found");
-				return SKIP_BODY;
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
+		writer = this.pageContext.getOut();
 		int size = 0;
 
-		for (TreeNodeBean treeItem : treeList) {
+		for (TreeTagBean treeItem : treeList) {
 			int temp = measure(treeItem);
 
 			if (size < temp) {
@@ -47,7 +39,7 @@ public class TreeTag extends TagSupport {
 			}
 		}
 
-		for (TreeNodeBean bean : treeList) {
+		for (TreeTagBean bean : treeList) {
 			try {
 				writer.println("<li style='width: " + (size + 25) + "%;'>");
 				writeDOMTree(bean, writer, "", 1);
@@ -61,6 +53,17 @@ public class TreeTag extends TagSupport {
 
 	@Override
 	public int doStartTag() throws JspException {
+		writer = this.pageContext.getOut();
+		
+		if (treeList == null || treeList.isEmpty()) {
+			try {
+				writer.println("Not Found");
+				return SKIP_BODY;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		return EVAL_PAGE;
 	}
 
@@ -70,21 +73,21 @@ public class TreeTag extends TagSupport {
 		this.treeList = null;
 	}
 
-	private int measure(TreeNodeBean node) {
+	private int measure(TreeTagBean node) {
 		String space = "";
 		int size = 0;
-		Stack<TreeNodeBean> stack = new Stack<>();
+		Stack<TreeTagBean> stack = new Stack<>();
 		stack.push(node);
 
 		while (!stack.isEmpty()) {
-			TreeNodeBean bean = stack.pop();
+			TreeTagBean bean = stack.pop();
 			String text = space + bean.getTitle();
 
 			if (text.length() > size) {
 				size = text.length();
 			}
 
-			for (TreeNodeBean item : bean.getList()) {
+			for (TreeTagBean item : bean.getList()) {
 				if (!stack.contains(item)) {
 					stack.push(item);
 				}
@@ -95,10 +98,10 @@ public class TreeTag extends TagSupport {
 		return size;
 	}
 
-	private void writeDOMTree(TreeNodeBean node, JspWriter writer, String space,
+	private void writeDOMTree(TreeTagBean node, JspWriter writer, String space,
 					int depth) {
 		try {
-			List<TreeNodeBean> list = node.getList();
+			List<TreeTagBean> list = node.getList();
 
 			if (list.isEmpty()) {
 				writer.println("<div class='tree-body'>");
@@ -122,7 +125,7 @@ public class TreeTag extends TagSupport {
 					space += "&nbsp;&nbsp;&nbsp;";
 					depth++;
 
-					for (TreeNodeBean item : list) {
+					for (TreeTagBean item : list) {
 						writeDOMTree(item, writer, space, depth);
 					}
 				}

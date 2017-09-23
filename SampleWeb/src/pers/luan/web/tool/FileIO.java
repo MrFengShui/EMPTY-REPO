@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class FileIO {
@@ -14,7 +16,7 @@ public class FileIO {
 	private static InputStreamReader isr;
 	private static BufferedReader br;
 	
-	public static String read(String path) {
+	public static String readAsString(String path) {
 		try {
 			File file = new File(path);
 			
@@ -26,10 +28,34 @@ public class FileIO {
 				StringBuilder builder = new StringBuilder();
 				
 				while ((line = br.readLine()) != null) {
-					builder.append(line).append("\n\n");
+					builder.append(line).append("\n");
 				}
 				
 				return builder.toString();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static List<String> readAsList(String path) {
+		try {
+			File file = new File(path);
+			
+			if (file.exists()) {
+				is = new FileInputStream(file);
+				isr = new InputStreamReader(is);
+				br = new BufferedReader(isr);
+				String line = null;
+				List<String> list = new ArrayList<>();
+				
+				while ((line = br.readLine()) != null) {
+					list.add(line);
+				}
+				
+				return list;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

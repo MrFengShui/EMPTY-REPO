@@ -1,16 +1,4 @@
-function show_hide_list(event) {
-	var button = (event.target.nodeName == 'I') ? event.target.parentNode : event.target;
-	var root = button.parentNode;
-	var child = root.children[1];
-	
-	if (child.style.display == 'none' || child.style.display == '') {
-		child.style.display = 'block';
-		button.children[0].className = 'fa fa-minus-square-o'
-	} else {
-		child.style.display = 'none';
-		button.children[0].className = 'fa fa-plus-square-o'
-	}
-}
+
 
 function show_date_time() {
 	var date = new Date();

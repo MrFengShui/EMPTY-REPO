@@ -30,7 +30,7 @@
 		</td>
 	</tr>
 </table>
-<jsp:include page="modal-dialog.jsp"/>
+<jsp:include page="../component/modal-dialog.jsp"/>
 </body>
 <script src="../js/about.js" type="text/javascript"></script>
 </html>

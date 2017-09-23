@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ taglib uri = "/WEB-INF/tag/tag.tld" prefix = "t"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,36 +12,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test Page</title>
 </head>
-<body style="background-color: blue;">
-<nav class="menu-bar">
-	<c:forEach items="${root}" var="item">
-		<a href="#" class="menu-title medium-text-font div-center-center" id="${item.ID}">
-			<i class="fa fa-life-ring" aria-hidden="true"></i>
-			&nbsp;${item.text}
-		</a>
-	</c:forEach>
-	<span style="width: 100%;"></span>
-</nav>
-<c:forEach items="${nodes}" var="node">
-	<div class="menu-list" id="${node.ID}-list">
-		<c:forEach items="${node.list}" var="item">
-			<c:choose>
-				<c:when test="${item.type == 'item'}">
-					<a href="${item.link}" class="menu-item medium-text-font div-left-center" id="${item.ID}">
-						${item.icon}&nbsp;${item.text}&nbsp;
-					</a>
-				</c:when>
-				<c:otherwise>
-					<a href="${item.link}" class="menu-item medium-text-font div-left-center" id="${item.ID}">
-						${item.icon}&nbsp;${item.text}&nbsp;
-						<i class="fa fa-chevron-right" aria-hidden="true"></i>
-					</a>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-	</div>
-</c:forEach>
+<body class="div-center-center" style="background-color: crimson;padding: 10px;">
+<div class="tabbed-panel">
+	<ul class="tabbed-panel-items div-center-center">
+		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-1</a></li>
+		<ins>&nbsp;</ins>
+		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-2</a></li>
+		<ins>&nbsp;</ins>
+		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-3</a></li>
+		<ins>&nbsp;</ins>
+		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-4</a></li>
+	</ul>
+	<div class="tabbed-panel-content medium-border"></div>
+</div>
 </body>
 <script src="js/execute.js" type="text/javascript"></script>
-<script src="js/component.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+<script src="js/component.js" type="text/javascript" onload="collapse_title_panel();"></script>
 </html>

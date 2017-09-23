@@ -32,5 +32,54 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+	
+	<tag>
+		<name>slide</name>
+		<tag-class>pers.luan.web.tool.tag.ImageSlideTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>srcList</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>modal</name>
+		<tag-class>pers.luan.web.tool.tag.ModalDialogTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>tagBean</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>accordion</name>
+		<tag-class>pers.luan.web.tool.tag.AccordionTag</tag-class>
+		<body-content>jsp</body-content>
+	</tag>
+	
+	<tag>
+		<name>title</name>
+		<tag-class>pers.luan.web.tool.tag.TitlePanelTag</tag-class>
+		<body-content>jsp</body-content>
+		
+		<attribute>
+			<name>title</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>collapsed</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+	</tag>
  
  </taglib>

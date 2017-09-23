@@ -7,7 +7,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import pers.luan.web.bean.MenuItemBean;
+import pers.luan.web.bean.tag.MenuTagBean;
 
 public class MenuTag extends TagSupport {
 
@@ -39,7 +39,7 @@ public class MenuTag extends TagSupport {
 		try {
 			writer.println("<div class='menu-list' id='" + menuList.getParent().getID() + "'>");
 			
-			for (MenuItemBean child : menuList.getChildren()) {
+			for (MenuTagBean child : menuList.getChildren()) {
 				writer.println("<a href='" 
 								+ child.getLink() + "' class='menu-item medium-text-font div-center-center' id='" 
 								+ child.getID() + "'>");
@@ -69,22 +69,22 @@ public class MenuTag extends TagSupport {
 	
 	public class MenuList {
 		
-		private MenuItemBean parent;
-		private List<MenuItemBean> children;
+		private MenuTagBean parent;
+		private List<MenuTagBean> children;
 		
-		public MenuItemBean getParent() {
+		public MenuTagBean getParent() {
 			return parent;
 		}
 		
-		public void setParent(MenuItemBean parent) {
+		public void setParent(MenuTagBean parent) {
 			this.parent = parent;
 		}
 		
-		public List<MenuItemBean> getChildren() {
+		public List<MenuTagBean> getChildren() {
 			return children;
 		}
 		
-		public void setChildren(List<MenuItemBean> children) {
+		public void setChildren(List<MenuTagBean> children) {
 			this.children = children;
 		}
 

@@ -16,20 +16,20 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import pers.luan.web.bean.MenuItemBean;
+import pers.luan.web.bean.tag.MenuTagBean;
 
 public class MenuBuilder {
 	
 	private Reader reader;
 
 	@SuppressWarnings("unchecked")
-	public List<MenuItemBean> parse(String path) {
+	public List<MenuTagBean> parse(String path) {
 		try {
 			reader = new FileReader(path);
 			JSONParser parser = new JSONParser();
 			JSONObject json = (JSONObject) parser.parse(reader);
 			Set<Entry<Object, Object>> set = json.entrySet();
-			List<MenuItemBean> list = new ArrayList<>();
+			List<MenuTagBean> list = new ArrayList<>();
 			
 			for (Entry<Object, Object> entry : set) {
 				JSONObject object = (JSONObject) entry.getValue();
@@ -51,25 +51,25 @@ public class MenuBuilder {
 		return null;
 	}
 
-	public List<MenuItemBean> buildMenu(JSONObject json, List<MenuItemBean> list) {
+	public List<MenuTagBean> buildMenu(JSONObject json, List<MenuTagBean> list) {
 		Stack<JSONObject> stack = new Stack<>();
 		stack.push(json);
 		
 		while (!stack.empty()) {
 			JSONObject temp = stack.pop();
-			MenuItemBean bean = new MenuItemBean();
+			MenuTagBean bean = new MenuTagBean();
 			bean.setID(temp.get("id").toString());
 			bean.setText(temp.get("text").toString());
 			bean.setType(temp.get("type").toString());
 			bean.setIcon(temp.get("icon").toString());
 			
 			if (!bean.getType().equals("item")) {
-				List<MenuItemBean> beanList = new ArrayList<>();
+				List<MenuTagBean> beanList = new ArrayList<>();
 				JSONArray array = (JSONArray) temp.get("list");
 				
 				for (int i = 0; i < array.size(); i ++) {
 					JSONObject item = (JSONObject) array.get(i);
-					MenuItemBean itemBean = new MenuItemBean();
+					MenuTagBean itemBean = new MenuTagBean();
 					itemBean.setID(item.get("id").toString());
 					itemBean.setText(item.get("text").toString());
 					itemBean.setType(item.get("type").toString());
@@ -91,10 +91,10 @@ public class MenuBuilder {
 			}
 		}
 		
-		Collections.sort(list, new Comparator<MenuItemBean>() {
+		Collections.sort(list, new Comparator<MenuTagBean>() {
 
 			@Override
-			public int compare(MenuItemBean o1, MenuItemBean o2) {
+			public int compare(MenuTagBean o1, MenuTagBean o2) {
 				return o1.getID().compareTo(o2.getID());
 			}
 			
@@ -102,8 +102,8 @@ public class MenuBuilder {
 		return list;
 	}
 
-	public static void printMenu(List<MenuItemBean> list) {
-		for (MenuItemBean item : list) {
+	public static void printMenu(List<MenuTagBean> list) {
+		for (MenuTagBean item : list) {
 			System.out.println(item + "\n");
 		}
 	}

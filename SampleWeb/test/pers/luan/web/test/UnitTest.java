@@ -1,5 +1,6 @@
 package pers.luan.web.test;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map.Entry;
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Properties;
 import java.util.Set;
 
@@ -18,7 +22,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
-import pers.luan.web.bean.MenuItemBean;
+import pers.luan.web.bean.tag.MenuTagBean;
 import pers.luan.web.tool.FileIO;
 import pers.luan.web.tool.MenuBuilder;
 import pers.luan.web.tool.TreeBuilder;
@@ -27,7 +31,7 @@ public class UnitTest {
 
 	@Test
 	public void test() throws IOException {
-		System.out.println("Hello, Unit Test");
+		
 	}
 
 	@Test
@@ -41,7 +45,7 @@ public class UnitTest {
 			TreeBuilder builder = new TreeBuilder();
 			
 //			for (Object key : json.keySet()) {
-//				TreeNodeBean node = builder.buildTree(json, key.toString());
+//				TreeTagBean node = builder.buildTree(json, key.toString());
 //				builder.printTree(node, "");
 //			}
 		} catch (ParseException | IOException e) {
@@ -60,7 +64,7 @@ public class UnitTest {
 			JSONObject json = (JSONObject) parser.parse(reader);
 			MenuBuilder builder = new MenuBuilder();
 			Set<Entry<Object, Object>> set = json.entrySet();
-			List<MenuItemBean> list = new ArrayList<>();
+			List<MenuTagBean> list = new ArrayList<>();
 //			builder.buildMenu((JSONObject) json.get("menu_1"), list);
 			for (Entry<Object, Object> entry : set) {
 				JSONObject object = (JSONObject) entry.getValue();

@@ -28,4 +28,20 @@ window.addEventListener('DOMContentLoaded', function(event) {
 			titles[i].addEventListener('mouseover', show_menu);
 		}
 	}
+	
+	var slideImages = document.querySelectorAll('.image-item img');
+	
+	if (slideImages) {
+		for (var i = 0; i < slideImages.length; i ++) {
+			slideImages[i].addEventListener('mouseover', switch_image_slide);
+		}
+	}
+	
+	var collapseButtons = document.querySelectorAll('.title-panel button');
+	
+	if (collapseButtons) {
+		for (var i = 0; i < collapseButtons.length; i ++) {
+			collapseButtons[i].addEventListener('click', switch_title_panel);
+		}
+	}
 });
