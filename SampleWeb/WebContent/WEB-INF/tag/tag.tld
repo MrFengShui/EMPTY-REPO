@@ -81,5 +81,60 @@
 			<type>boolean</type>
 		</attribute>
 	</tag>
+	
+	<tag>
+		<name>tabbedPanel</name>
+		<tag-class>pers.luan.web.tool.tag.TabbedPanelTag</tag-class>
+		<body-content>jsp</body-content>
+	</tag>
+	
+	<tag>
+		<name>tabbedItems</name>
+		<tag-class>pers.luan.web.tool.tag.TabbedItemsTag</tag-class>
+		<body-content>jsp</body-content>
+	</tag>
+	
+	<tag>
+		<name>tabbedItem</name>
+		<tag-class>pers.luan.web.tool.tag.TabbedItemTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>title</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>closable</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		
+		<attribute>
+			<name>ID</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>tabbedBody</name>
+		<tag-class>pers.luan.web.tool.tag.TabbedBodyTag</tag-class>
+		<body-content>jsp</body-content>
+	</tag>
+	
+	<tag>
+		<name>tabbedContent</name>
+		<tag-class>pers.luan.web.tool.tag.TabbedContentTag</tag-class>
+		<body-content>jsp</body-content>
+		
+		<attribute>
+			<name>ID</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
  
  </taglib>

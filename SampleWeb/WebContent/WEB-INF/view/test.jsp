@@ -12,21 +12,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test Page</title>
 </head>
-<body class="div-center-center" style="background-color: crimson;padding: 10px;">
-<div class="tabbed-panel">
-	<ul class="tabbed-panel-items div-center-center">
-		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-1</a></li>
-		<ins>&nbsp;</ins>
-		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-2</a></li>
-		<ins>&nbsp;</ins>
-		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-3</a></li>
-		<ins>&nbsp;</ins>
-		<li class="tabbed-panel-item"><a href="#" class="medium-text-font div-center-center">TITLE-4</a></li>
-	</ul>
-	<div class="tabbed-panel-content medium-border"></div>
+<body class="div-center-center" style="background-color: crimson;">
+<div class="slide-bar thin-border" style="width: 350px;height: 50px;">
+	<span class="slide-bar-left"></span>
+	<button class="medium-border"></button>
+	<span class="slide-bar-right"></span>
 </div>
 </body>
 <script src="js/execute.js" type="text/javascript"></script>
 <script src="js/main.js" type="text/javascript"></script>
-<script src="js/component.js" type="text/javascript" onload="collapse_title_panel();"></script>
+<script src="js/component.js" type="text/javascript" onload="show_tabbed_panel();"></script>
 </html>
