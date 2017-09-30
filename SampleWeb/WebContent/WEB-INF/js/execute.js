@@ -44,23 +44,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
 			collapseButtons[i].addEventListener('click', switch_title_panel);
 		}
 	}
-	
-	var tabbedTitles = document.querySelectorAll('.tabbed-panel-item span');
-	
-	if (tabbedTitles) {
-		for (var i = 0; i < tabbedTitles.length; i ++) {
-			tabbedTitles[i].addEventListener('click', switch_tabbed_content);
-		}
-	}
-	
-	var tabbedButtons = document.querySelectorAll('.tabbed-panel-item button');
-	
-	if (tabbedButtons) {
-		for (var i = 0; i < tabbedButtons.length; i ++) {
-			tabbedButtons[i].addEventListener('click', close_tabbed_panel);
-		}
-	}
-	
+
 	var slide = document.querySelector('.slide-bar');
 	
 	if (slide) {
