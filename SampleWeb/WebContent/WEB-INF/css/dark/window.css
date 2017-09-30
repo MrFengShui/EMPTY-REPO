@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-
+/**/
 .modal-dialog-backbone {
 	background-color: rgba(0, 0, 0, 0.75);
 	display: block;
@@ -54,4 +54,45 @@
 
 .modal-dialog-body::-webkit-scrollbar-thumb {
 	background-color: rgb(32, 32, 32);
+}
+/**/
+.alert-dialog {
+	width: auto;
+	height: auto;
+	z-index: 10000;
+}
+
+.alert-dialog-head {
+	background-color: rgb(32, 32, 32);
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	height: 40px;
+}
+
+.alert-dialog-head span {
+	color: rgb(234, 234, 234);
+	width: 100%;
+	height: 100%;
+}
+
+.alert-dialog-head button {
+	width: 10%;
+	height: 100%;
+}
+
+.alert-dialog-content {
+	width: 100%;
+	height: auto;
+}
+
+.alert-dialog-content span {
+	padding: 5px;
+	width: auto;
+}
+
+.alert-dialog-content p {
+	margin: 0 auto;
+	padding: 5px;
+	width: 100%;
 }

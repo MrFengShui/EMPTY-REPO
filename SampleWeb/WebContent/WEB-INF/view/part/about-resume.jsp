@@ -25,7 +25,7 @@
 		</td>
 	</tr>
 </table>
-<jsp:include page="../component/modal-dialog.jsp"/>
+<jsp:include page="../gui/window/modal-dialog.jsp"/>
 </body>
 <script src="../js/about.js" type="text/javascript"></script>
 </html>

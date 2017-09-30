@@ -130,82 +130,34 @@ function show_hide_list(event) {
 	}
 }
 /**/
-function show_tabbed_panel() {
-	var items = document.getElementsByClassName('tabbed-panel-item');
-	
-	for (var i = 0; i < items.length; i ++) {
-		if (items[i].id.includes('-selected')) {
-			select_tabbed_panel(items[i]);
-			break;
-		}
-	}
-}
-
-function select_tabbed_panel(node) {
-	var span = node.children[0];
-	var index = node.id.lastIndexOf('-selected');
-	var content = document.getElementById(node.id.substr(0, index) + '-content');
-	span.style.backgroundColor = 'rgb(32, 32, 32)';
-	span.style.color = 'rgb(234, 234, 234)';
-	content.style.display = 'block';
-	
-	if (node.children.length > 1) {
-		var button = node.children[1];
-		button.style.backgroundColor = 'rgb(32, 32, 32)';
-		button.style.color = 'rgb(234, 234, 234)';
-	}
-}
-
-function switch_tabbed_content(event) {
-	var items = document.getElementsByClassName('tabbed-panel-item');
-	var contents = document.getElementsByClassName('tabbed-panel-content');
-	
-	if (contents) {
-		for (var i = 0; i < contents.length; i ++) {
-			contents[i].style.display = 'none';
-		}
-	}
-	
-	if (items) {
-		for (var i = 0; i < items.length; i ++) {
-			items[i].id = 'tabbed-' + (i + 1);
-			items[i].children[0].style.backgroundColor = 'rgb(234, 234, 234)';
-			items[i].children[0].style.color = 'rgb(32, 32, 32)';
-			
-			if (items[i].children.length > 1) {
-				items[i].children[1].style.backgroundColor = 'rgb(234, 234, 234)';
-				items[i].children[1].style.color = 'rgb(32, 32, 32)';
-			}
-		}
-	}
-	
-	var node = event.target.parentNode;
-	node.id += '-selected';
-	select_tabbed_panel(node);
-}
-
-function close_tabbed_panel(event) {
-	var title = document.querySelector('.tabbed-panel-items');
-	var content = document.querySelector('.tabbed-panel-body');
-	var button = (event.target.nodeName == 'I') ? event.target.parentNode : event.target;
-	var node = button.parentNode;
-	
-	if (content) {
-		title.removeChild(node);
-		content.removeChild(document.getElementById(node.id + '-content'));
-	}
-}
-
 function move_slide(event) {
-	var parent = event.target.parentNode;
-	var left = parent.children[0];
-	var right = parent.children[1];
-	
 	if (event.type == 'mousedown') {
-		console.log('mouse down');
+		parent = event.target.type == 'DIV' ? event.target : event.target.parentNode;
+		left = parent.children[0];
+		button = parent.children[1];
+		right = parent.children[2];
+		parentPosition = parent.getBoundingClientRect();
+		buttonPosition = button.getBoundingClientRect();
+		leftPosition = left.getBoundingClientRect();
+		rightPosition = right.getBoundingClientRect();
+		startX = event.clientX;
 	} else if (event.type == 'mouseup') {
-		console.log('mouse up');
+		parent = null;
+		left = null;
+		button = null;
+		right = null;
+		parentPosition = null;
+		buttonPosition = null;
+		leftPosition = null;
+		rightPosition = null;
 	} else {
-		console.log('mouse move');
+		var endX = event.clientX;
+		var leftPercent = (leftPosition.width + (endX - startX)) * 100 / (parentPosition.width - buttonPosition.width);
+		var rightPercent = (rightPosition.width - (endX - startX)) * 100 / (parentPosition.width - buttonPosition.width);
+		
+		if (leftPercent >= 0 && leftPercent <= 100) {
+			left.style.width = leftPercent + '%';
+			right.style.width = rightPercent + '%';
+		}
 	}
 }

@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
 @IMPORT "dark/common.css";
-@IMPORT "dark/component.css";
-@IMPORT "dark/dialog.css";
+@IMPORT "dark/control.css";
+@IMPORT "dark/panel.css";
+@IMPORT "dark/window.css";
 @IMPORT "dark/tag.css";
 
 .page-container {

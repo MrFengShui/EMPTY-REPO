@@ -61,11 +61,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
 		}
 	}
 	
-	var slideButton = document.querySelector('.slide-bar button');
+	var slide = document.querySelector('.slide-bar');
 	
-	if (slideButton) {
-		slideButton.addEventListener('mousedown', move_slide);
-		slideButton.addEventListener('mousemove', move_slide);
-		slideButton.addEventListener('mouseup', move_slide);
+	if (slide) {
+		slide.addEventListener('mousedown', move_slide);
+		slide.addEventListener('mousemove', move_slide);
+		slide.addEventListener('mouseup', move_slide);
 	}
 });

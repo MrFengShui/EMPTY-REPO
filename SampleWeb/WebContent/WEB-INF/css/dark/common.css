@@ -40,6 +40,24 @@
 	font-weight: bold;
 }
 
+.big-icon-font {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 48pt;
+	font-weight: normal;
+}
+
+.medium-icon-font {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 36pt;
+	font-weight: normal;
+}
+
+.small-icon-font {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 18pt;
+	font-weight: normal;
+}
+
 .big-text-font {
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 18pt;
