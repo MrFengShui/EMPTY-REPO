@@ -19,5 +19,4 @@
 	<div class="split-panel-container" style="background-color: red;"></div>
 </div>
 </body>
-<script src="js/panel.js" type="text/javascript"></script>
 </html>

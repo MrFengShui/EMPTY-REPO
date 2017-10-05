@@ -24,7 +24,7 @@
 	</div>
 	<hr>
 	<div class="page-center div-center-center" style="height: calc(100% - 135px);">
-		<ul class="tree-container"><cc:tree treeList="${treelist}"/></ul>
+		<div class="tree"></div>
 		<hr style="height: 100%;">
 		<iframe src="" name="page_frame" id="main_page_frame"></iframe>
 	</div>
@@ -33,5 +33,6 @@
 </div>
 </body>
 <script src="js/execute.js" type="text/javascript"></script>
+<script src="js/control.js" type="text/javascript" onload="tree_build(${json}, ${size});"></script>
 <script src="js/main.js" type="text/javascript" onload="show_date_time();"></script>
 </html>

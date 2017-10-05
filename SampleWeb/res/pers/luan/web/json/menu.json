@@ -1,14 +1,13 @@
-{
-	"menu_1": {
+[
+	{
 		"text": "Menu 1",
 		"type": "menu",
-		"icon": "",
 		"id": "menu-1",
 		"list": [
 			{
 				"text": "Item 1-1", 
 				"type": "item", 
-				"icon": "&nbsp;&nbsp;&nbsp;",
+				"icon": "",
 				"id": "menu-1-item-1", 
 				"link": "#"
 			},
@@ -28,16 +27,15 @@
 			}
 		]
 	},
-	"menu_2": {
+	{
 		"text": "Menu 2",
 		"type": "menu",
-		"icon": "",
 		"id": "menu-2",
 		"list": [
 			{
 				"text": "Menu 2-1", 
 				"type": "list", 
-				"icon": "&nbsp;&nbsp;&nbsp;",
+				"icon": "",
 				"id": "menu-2-list-1", 
 				"list": [
 					{
@@ -80,10 +78,9 @@
 			}
 		]
 	},
-	"menu_3": {
+	{
 		"text": "Menu 3",
 		"type": "menu",
-		"icon": "",
 		"id": "menu-3",
 		"list": [
 			{
@@ -95,4 +92,4 @@
 			}
 		]
 	}
-}
+]

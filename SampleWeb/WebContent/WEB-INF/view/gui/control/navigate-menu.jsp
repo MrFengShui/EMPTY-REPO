@@ -8,10 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<div class="slide-bar">
-	<span class="slide-bar-left"></span>
-	<button class="slide-bar-button"></button>
-	<span class="slide-bar-right"></span>
-</div>
+<div class="navigate-menu"></div>
 </body>
+<script src="js/control.js" type="text/javascript" onload="menu_build(${json});"></script>
 </html>

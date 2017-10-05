@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+@IMPORT "dark/border.css";
 @IMPORT "dark/common.css";
 @IMPORT "dark/control.css";
 @IMPORT "dark/panel.css";

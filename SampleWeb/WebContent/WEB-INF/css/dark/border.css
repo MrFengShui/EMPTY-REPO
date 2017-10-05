@@ -1,0 +1,87 @@
+@CHARSET "UTF-8";
+
+.thin-border-positive {
+	border-color: rgb(234, 234, 234);
+	border-width: thin;
+	border-style: solid;
+}
+
+.thin-border-positive-shadow {
+	border-color: rgb(234, 234, 234);
+	border-width: thin;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+}
+
+.thin-border-negative {
+	border-color: rgb(32, 32, 32);
+	border-width: thin;
+	border-style: solid;
+}
+
+.thin-border-negative-shadow {
+	border-color: rgb(32, 32, 32);
+	border-width: thin;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.medium-border-positive {
+	border-color: rgb(234, 234, 234);
+	border-width: medium;
+	border-style: solid;
+}
+
+.medium-border-positive-shadow {
+	border-color: rgb(234, 234, 234);
+	border-width: medium;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+}
+
+.medium-border-negative {
+	border-color: rgb(32, 32, 32);
+	border-width: medium;
+	border-style: solid;
+}
+
+.medium-border-negative-shadow {
+	border-color: rgb(32, 32, 32);
+	border-width: medium;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.thick-border-positive {
+	border-color: rgb(234, 234, 234);
+	border-width: thick;
+	border-style: solid;
+}
+
+.thick-border-positive-shadow {
+	border-color: rgb(234, 234, 234);
+	border-width: thick;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+}
+
+.thick-border {
+	border-color: rgb(32, 32, 32);
+	border-width: thick;
+	border-style: solid;
+}
+
+.thick-border-shadow {
+	border-color: rgb(32, 32, 32);
+	border-width: thick;
+	border-style: solid;
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+/**/
+.positive-shadow {
+	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
+}
+
+.negative-shadow {
+	box-shadow: 0 0 15px rgba(32, 32, 32, 0.25), 0 0 15px rgba(32, 32, 32, 0.25);
+}

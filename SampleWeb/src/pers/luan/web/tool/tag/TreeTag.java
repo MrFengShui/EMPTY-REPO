@@ -40,13 +40,7 @@ public class TreeTag extends TagSupport {
 		}
 
 		for (TreeTagBean bean : treeList) {
-			try {
-				writer.println("<li style='width: " + (size + 25) + "%;'>");
-				writeDOMTree(bean, writer, "", 1);
-				writer.println("</li>");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			writeDOMTree(bean, writer, "", 1, size);
 		}
 		return SKIP_BODY;
 	}
@@ -99,34 +93,34 @@ public class TreeTag extends TagSupport {
 	}
 
 	private void writeDOMTree(TreeTagBean node, JspWriter writer, String space,
-					int depth) {
+					int depth, int size) {
 		try {
 			List<TreeTagBean> list = node.getList();
-
+			
 			if (list.isEmpty()) {
-				writer.println("<div class='tree-body'>");
 				writer.println("<a href='demo/" + node.getPlace()
 								+ "' target='page_frame' class='tree-leaf small-text-font'>");
 				writer.println(space);
 				writer.println("<i class='fa fa-flag' aria-hidden='true'></i>&nbsp;"
 								+ node.getTitle());
 				writer.println("</a>");
-				writer.println("</div>");
 			} else {
-				writer.println("<div class='tree-body'>");
-				writer.println("<a href='#' class='tree-node small-text-font'>");
+				writer.println("<div class='tree-item' style='width: " + (size + 25) + "%;'>");
+				writer.println("<div class='tree-item-head'>");
+				writer.println("<a href='#' class='tree-leaf small-text-font'>");
 				writer.println(space);
 				writer.println("<i class='fa fa-plus-square-o' aria-hidden='true'></i>&nbsp;"
 								+ node.getTitle());
 				writer.println("</a>");
-				writer.println("<div class='tree-nodes'>");
+				writer.println("</div>");
+				writer.println("<div class='tree-item-body'>");
 
 				if (list != null) {
 					space += "&nbsp;&nbsp;&nbsp;";
 					depth++;
 
 					for (TreeTagBean item : list) {
-						writeDOMTree(item, writer, space, depth);
+						writeDOMTree(item, writer, space, depth, size);
 					}
 				}
 				

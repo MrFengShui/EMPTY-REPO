@@ -13,8 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test Page</title>
 </head>
-<body class="div-center-center" style="background-color: lightgrey;padding: 5px;">
-<jsp:include page="gui/window/alert-dialog.jsp"/>
+<body class="div-center-center" style="background-color: black;padding: 5px;">
+<jsp:include page="gui/control/navigate-menu.jsp"/>
 </body>
 <script src="js/test.js" type="text/javascript"></script>
 <script src="js/panel.js" type="text/javascript"></script>

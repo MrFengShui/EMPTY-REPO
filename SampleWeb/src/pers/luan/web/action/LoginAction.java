@@ -1,5 +1,7 @@
 package pers.luan.web.action;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -11,8 +13,11 @@ import java.util.Locale;
 
 import javax.xml.bind.DatatypeConverter;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,15 +27,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pers.luan.web.bean.form.LoginFormBean;
 import pers.luan.web.bean.tag.MenuTagBean;
-import pers.luan.web.bean.tag.TreeTagBean;
 import pers.luan.web.dao.LoginDAO;
 import pers.luan.web.db.SampleDB;
+import pers.luan.web.tool.JSONTool;
 import pers.luan.web.tool.MenuBuilder;
-import pers.luan.web.tool.TreeBuilder;
 
 @Controller
 public class LoginAction {
 
+	private FileReader reader;
+	
 	private String name;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -70,8 +76,8 @@ public class LoginAction {
 	public String doRedirect(
 					@RequestParam(name = "success",
 									required = true) String value,
-					Model model) {
-		model.addAttribute("username", name);
+					ModelMap map) {
+		map.addAttribute("username", name);
 		
 		String path = getClass().getResource("/pers/luan/web/json/menu.json")
 						.toExternalForm().replace("file:", "");
@@ -86,15 +92,41 @@ public class LoginAction {
 				root.add(bean);
 			}
 		}
-		model.addAttribute("root", root);
-		model.addAttribute("nodes", menuList);
+		map.addAttribute("root", root);
+		map.addAttribute("nodes", menuList);
 
-		path = getClass().getResource("/pers/luan/web/json/tree.json")
-						.toExternalForm().replace("file:", "");
-		TreeBuilder treeBuilder = new TreeBuilder();
-		List<TreeTagBean> treeList = treeBuilder.parse(path);
-		model.addAttribute("treelist", treeList);
+		fillTree(map);
 		return "index";
+	}
+	
+	private void fillTree(final ModelMap map) {
+		try {
+			String path = getClass().getResource("/pers/luan/web/json/tree.json")
+							.toExternalForm().replace("file:", "");
+			reader = new FileReader(path);
+			JSONParser parser = new JSONParser();
+			JSONArray json = (JSONArray) parser.parse(reader);
+			map.addAttribute("json", json.toJSONString().replaceAll("\"", "'"));
+			
+			int size = 0;
+			
+			for (int i = 0; i < json.size(); i ++) {
+				JSONObject item = (JSONObject) json.get(i);
+				size = Math.max(size, JSONTool.measure(item, 0, ""));
+			}
+			
+			map.addAttribute("size", size);
+		} catch (IOException | ParseException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }

@@ -11,5 +11,4 @@
 <div class="hbox"></div>
 <div class="vbox"></div>
 </body>
-<script src="js/panel.js" type="text/javascript" onload="border_panel_match_size()"></script>
 </html>

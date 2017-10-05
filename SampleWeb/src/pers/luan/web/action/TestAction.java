@@ -1,18 +1,17 @@
 package pers.luan.web.action;
 
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import pers.luan.web.bean.TestBean;
+import pers.luan.web.tool.JSONTool;
 
 @Controller
 public class TestAction {
@@ -41,8 +40,44 @@ public class TestAction {
 //		}
 //	}
 	
+	private FileReader reader;
+	
 	@RequestMapping("/test")
-	public String show() {
+	public String show(ModelMap map) {
+		try {
+//			String path = getClass().getResource("/pers/luan/web/json/tree.json")
+//							.toExternalForm().replace("file:", "");
+//			reader = new FileReader(path);
+//			JSONParser parser = new JSONParser();
+//			JSONArray json = (JSONArray) parser.parse(reader);
+//			map.addAttribute("json", json.toJSONString().replaceAll("\"", "'"));
+//			
+//			int size = 0;
+//			
+//			for (int i = 0; i < json.size(); i ++) {
+//				JSONObject item = (JSONObject) json.get(i);
+//				size = Math.max(size, JSONTool.measure(item, 0, ""));
+//			}
+//			
+//			map.addAttribute("size", size);
+			String path = getClass().getResource("/pers/luan/web/json/menu.json")
+							.toExternalForm().replace("file:", "");
+			reader = new FileReader(path);
+			JSONParser parser = new JSONParser();
+			JSONArray json = (JSONArray) parser.parse(reader);
+			map.addAttribute("json", json.toJSONString().replaceAll("\"", "'"));
+		} catch (IOException | ParseException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		return "test";
 	}
 

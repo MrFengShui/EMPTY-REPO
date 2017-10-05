@@ -12,5 +12,4 @@
 	<div></div>
 </div>
 </body>
-<script src="../js/about.js" type="text/javascript"></script>
 </html>

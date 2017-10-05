@@ -76,44 +76,7 @@
 	font-weight: normal;
 }
 
-.thin-border {
-	border-color: rgb(32, 32, 32);
-	border-width: thin;
-	border-style: solid;
-}
 
-.thin-border-shadow {
-	border-color: rgb(32, 32, 32);
-	border-width: thin;
-	border-style: solid;
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-}
-
-.medium-border {
-	border-color: rgb(32, 32, 32);
-	border-width: medium;
-	border-style: solid;
-}
-
-.medium-border-shadow {
-	border-color: rgb(32, 32, 32);
-	border-width: medium;
-	border-style: solid;
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-}
-
-.thick-border {
-	border-color: rgb(32, 32, 32);
-	border-width: thick;
-	border-style: solid;
-}
-
-.thick-border-shadow {
-	border-color: rgb(32, 32, 32);
-	border-width: thick;
-	border-style: solid;
-	box-shadow: 0 0 15px rgba(234, 234, 234, 0.25), 0 0 15px rgba(234, 234, 234, 0.25);
-}
 
 .div-top-center {
 	align-items: start;

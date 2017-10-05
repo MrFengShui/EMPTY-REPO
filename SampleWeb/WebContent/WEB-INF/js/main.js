@@ -1,5 +1,3 @@
-
-
 function show_date_time() {
 	var date = new Date();
 	var year = date.getFullYear();

@@ -1,116 +1,308 @@
-{
-	"sample_demo": {
-		"title": "Sample Demo",
-		"place": "demo",
-		"list": [
-			{"title": "Struts Demo", "place": "#", "list": []},
-			{"title": "Hibernate Demo", "place": "#", "list": []},
-			{"title": "iBatis Demo", "place": "#", "list": []},
-			{"title": "Spring MVC Demo", "place": "#", "list": []},
-			{"title": "Spring Demo", "place": "#", "list": []}
+[
+	{
+		"type": "node",
+		"text": "Sample Demo",
+		"child": [
+			{
+				"type": "leaf",
+				"text": "Struts Demo", 
+				"link": "#"
+			},
+			{
+				"type": "leaf",
+				"text": "Hibernate Demo", 
+				"link": "#"
+			},
+			{
+				"type": "leaf",
+				"text": "iBatis Demo", 
+				"link": "#"
+			},
+			{
+				"type": "leaf",
+				"text": "Spring MVC Demo", 
+				"link": "#"
+			},
+			{
+				"type": "leaf",
+				"text": "Spring Demo", 
+				"link": "#"
+			}
 		]
 	},
-	"jfree_demo": {
-		"title": "JFreeChart Demo",
-		"place": "demo",
-		"list": [
-			{"title": "JFreeChart Preview", "place": "chart/all-chart", "list": []},
+	{
+		"type": "node",
+		"text": "JFreeChart Demo",
+		"child": [
 			{
-				"title": "Bar Chart Demo",
-				"place": "",
-				"list": [
-					{"title": "Bar Chart - Random Number", "place": "chart/random-chart?type=bar-chart", "list": []},
-					{"title": "Bar Chart - Loading File", "place": "chart/loading-chart?type=bar-chart", "list": []}
+				"type": "leaf",
+				"text": "JFreeChart Preview", 
+				"link": "chart/all-chart"
+			},
+			{
+				"type": "node",
+				"text": "Bar Chart Demo",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Bar Chart - Random Number", 
+						"link": "chart/random-chart?type=bar-chart"
+					},
+					{
+						"type": "leaf",
+						"text": "Bar Chart - Loading File", 
+						"link": "chart/loading-chart?type=bar-chart"
+					}
 				]
 			},
 			{
-				"title": "Line Chart Demo",
-				"place": "",
-				"list": [
-					{"title": "Line Chart - Random Number", "place": "chart/random-chart?type=line-chart", "list": []},
-					{"title": "Line Chart - Loading File", "place": "chart/loading-chart?type=line-chart", "list": []}
+				"type": "node",
+				"text": "Line Chart Demo",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Line Chart - Random Number", 
+						"link": "chart/random-chart?type=line-chart"
+					},
+					{
+						"type": "leaf",
+						"text": "Line Chart - Loading File", 
+						"link": "chart/loading-chart?type=line-chart"
+					}
 				]
 			},
 			{
-				"title": "Pie Chart Demo",
-				"place": "",
-				"list": [
-					{"title": "Pie Chart - Random Number", "place": "chart/random-chart?type=pie-chart", "list": []},
-					{"title": "Pie Chart - Loading File", "place": "chart/loading-chart?type=pie-chart", "list": []}
+				"type": "node",
+				"text": "Pie Chart Demo",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Pie Chart - Random Number", 
+						"link": "chart/random-chart?type=pie-chart"
+					},
+					{
+						"type": "leaf",
+						"text": "Pie Chart - Loading File", 
+						"link": "chart/loading-chart?type=pie-chart"
+					}
 				]
 			},
 			{
-				"title": "Scatter Chart Demo",
-				"place": "",
-				"list": [
-					{"title": "Simple Scatter Chart", "place": "#", "list": []},
-					{"title": "Normal Scatter Chart", "place": "#", "list": []},
-					{"title": "Complex Scatter Chart", "place": "#", "list": []}
+				"type": "node",
+				"text": "Scatter Chart Demo",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Simple Scatter Chart", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Normal Scatter Chart", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Complex Scatter Chart", 
+						"link": "#"
+					}
 				]
 			}
 		]
 	},
-	"pattern_tutorial": {
-		"title": "Design Pattern Tutorial",
-		"place": "demo",
-		"list": [
+	{
+		"type": "node",
+		"text": "Design Pattern Tutorial",
+		"child": [
 			{
-				"title": "Creational Pattern",
-				"place": "",
-				"list": [
-					{"title": "Factory", "place": "#", "list": []},
-					{"title": "Abstract Factory", "place": "#", "list": []},
-					{"title": "Builder", "place": "#", "list": []},
-					{"title": "Singleton", "place": "#", "list": []},
-					{"title": "Prototype", "place": "#", "list": []}
+				"type": "node",
+				"text": "Creational Pattern",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Factory", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Abstract Factory", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Builder", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Singleton", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Prototype", 
+						"link": "#"
+					}
 				]
 			},
 			{
-				"title": "Structural Pattern",
-				"place": "",
-				"list": [
-					{"title": "Adapter", "place": "#", "list": []},
-					{"title": "Bridge", "place": "#", "list": []},
-					{"title": "Filter", "place": "#", "list": []},
-					{"title": "Composite", "place": "#", "list": []},
-					{"title": "Decorator", "place": "#", "list": []},
-					{"title": "Facade", "place": "#", "list": []},
-					{"title": "Flyweight", "place": "#", "list": []},
-					{"title": "Proxy", "place": "#", "list": []}
+				"type": "node",
+				"text": "Structural Pattern",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Adapter", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Bridge", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Filter", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Composite", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Decorator", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Facade", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Flyweight", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Proxy", 
+						"link": "#"
+					}
 				]
 			},
 			{
-				"title": "Behavioral Pattern",
-				"place": "",
-				"list": [
-					{"title": "Chain of Responsibility", "place": "#", "list": []},
-					{"title": "Command", "place": "#", "list": []},
-					{"title": "Interpreter", "place": "#", "list": []},
-					{"title": "Iterator", "place": "#", "list": []},
-					{"title": "Mediator", "place": "#", "list": []},
-					{"title": "Memento", "place": "#", "list": []},
-					{"title": "Observer", "place": "#", "list": []},
-					{"title": "State", "place": "#", "list": []},
-					{"title": "Null Object", "place": "#", "list": []},
-					{"title": "Strategy", "place": "#", "list": []},
-					{"title": "Template", "place": "#", "list": []},
-					{"title": "Visitor", "place": "#", "list": []}
+				"type": "node",
+				"text": "Behavioral Pattern",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "Chain of Responsibility", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Command", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Interpreter", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Iterator", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Mediator", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Memento", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Observer", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "State", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Null Object", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Strategy", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Template", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Visitor", 
+						"link": "#"
+					}
 				]
 			},
 			{
-				"title": "J2EE Pattern",
-				"place": "",
-				"list": [
-					{"title": "MVC", "place": "#", "list": []},
-					{"title": "Business Delegate", "place": "#", "list": []},
-					{"title": "Composite Entity", "place": "#", "list": []},
-					{"title": "Data Access Object", "place": "#", "list": []},
-					{"title": "Front Controller", "place": "#", "list": []},
-					{"title": "Intercepting Filter", "place": "#", "list": []},
-					{"title": "Service Locator", "place": "#", "list": []},
-					{"title": "Transfer Object", "place": "#", "list": []}
+				"type": "node",
+				"text": "J2EE Pattern",
+				"child": [
+					{
+						"type": "leaf",
+						"text": "MVC", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Business Delegate", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Composite Entity", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Data Access Object", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Front Controller", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Intercepting Filter", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Service Locator", 
+						"link": "#"
+					},
+					{
+						"type": "leaf",
+						"text": "Transfer Object", 
+						"link": "#"
+					}
 				]
 			}
 		]
 	}
-}
+]
