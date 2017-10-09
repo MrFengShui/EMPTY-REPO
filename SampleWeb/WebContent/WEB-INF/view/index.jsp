@@ -22,17 +22,17 @@
 		<jsp:include page="part/navigate.jsp"/>
 		<jsp:include page="part/profile.jsp"/>
 	</div>
-	<hr>
+	<div class="separator-horizontal"></div>
 	<div class="page-center div-center-center" style="height: calc(100% - 135px);">
 		<div class="tree"></div>
-		<hr style="height: 100%;">
+		<div class="separator-vertical"></div>
 		<iframe src="" name="page_frame" id="main_page_frame"></iframe>
 	</div>
-	<hr>
+	<div class="separator-horizontal"></div>
 	<div class="page-footer"><span class="big-text-font div-center-center">Luan Songjian Copyright 2017-08-13</span></div>
 </div>
 </body>
 <script src="js/execute.js" type="text/javascript"></script>
-<script src="js/control.js" type="text/javascript" onload="tree_build(${json}, ${size});"></script>
+<script src="js/control.js" type="text/javascript" onload="tree_build(${tree_json}, ${size});menu_build(${menu_json})"></script>
 <script src="js/main.js" type="text/javascript" onload="show_date_time();"></script>
 </html>

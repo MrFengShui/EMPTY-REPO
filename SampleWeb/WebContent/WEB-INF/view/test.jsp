@@ -14,7 +14,7 @@
 <title>Test Page</title>
 </head>
 <body class="div-center-center" style="background-color: black;padding: 5px;">
-<jsp:include page="gui/control/navigate-menu.jsp"/>
+<jsp:include page="gui/panel/pagination.jsp"/>
 </body>
 <script src="js/test.js" type="text/javascript"></script>
 <script src="js/panel.js" type="text/javascript"></script>

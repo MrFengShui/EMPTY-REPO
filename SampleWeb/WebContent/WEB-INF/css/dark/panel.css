@@ -20,7 +20,7 @@
 	width: auto;
 	height: 100%;
 }
-
+/**/
 .hbox {
 	display: flex;
 	flex-wrap: nowrap;
@@ -31,7 +31,42 @@
 	display: block;
 	overflow: none;
 }
+/**/
+.pagination {
+	width: 100%;
+	height: auto;
+}
 
+.pagination-body {
+	width: 100%;
+	height: calc(100% - 60px);
+}
+
+.pagination-bar {
+	background-color: rgb(32, 32, 32);
+	width: auto;
+	height: auto;
+}
+
+.pagination-button {
+	background-color: rgb(32, 32, 32);
+	border: none;
+	color: rgb(234, 234, 234);
+	margin: 5px;
+	width: 5%;
+	height: 30px;
+}
+
+.pagination-button:hover {
+	cursor: pointer;
+}
+
+.pagination-content {
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+/**/
 .split-panel-horizontal {
 	display: flex;
 	flex-wrap: nowrap;

@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.xml.bind.DatatypeConverter;
@@ -26,11 +24,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import pers.luan.web.bean.form.LoginFormBean;
-import pers.luan.web.bean.tag.MenuTagBean;
 import pers.luan.web.dao.LoginDAO;
 import pers.luan.web.db.SampleDB;
 import pers.luan.web.tool.JSONTool;
-import pers.luan.web.tool.MenuBuilder;
 
 @Controller
 public class LoginAction {
@@ -78,25 +74,30 @@ public class LoginAction {
 									required = true) String value,
 					ModelMap map) {
 		map.addAttribute("username", name);
-		
-		String path = getClass().getResource("/pers/luan/web/json/menu.json")
-						.toExternalForm().replace("file:", "");
-		MenuBuilder menuBuilder = new MenuBuilder();
-		List<MenuTagBean> menuList = menuBuilder.parse(path);
-		List<MenuTagBean> root = new ArrayList<>();
-		
-		for (int i = 0; i < menuList.size(); i ++) {
-			MenuTagBean bean = menuList.get(i);
-			
-			if (bean.getType().equals("menu")) {
-				root.add(bean);
-			}
-		}
-		map.addAttribute("root", root);
-		map.addAttribute("nodes", menuList);
-
+		fillMenu(map);
 		fillTree(map);
 		return "index";
+	}
+	
+	private void fillMenu(final ModelMap map) {
+		try {
+			String path = getClass().getResource("/pers/luan/web/json/menu.json")
+							.toExternalForm().replace("file:", "");
+			reader = new FileReader(path);
+			JSONParser parser = new JSONParser();
+			JSONArray json = (JSONArray) parser.parse(reader);
+			map.addAttribute("menu_json", json.toJSONString().replaceAll("\"", "'"));
+		} catch (IOException | ParseException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 	
 	private void fillTree(final ModelMap map) {
@@ -106,7 +107,7 @@ public class LoginAction {
 			reader = new FileReader(path);
 			JSONParser parser = new JSONParser();
 			JSONArray json = (JSONArray) parser.parse(reader);
-			map.addAttribute("json", json.toJSONString().replaceAll("\"", "'"));
+			map.addAttribute("tree_json", json.toJSONString().replaceAll("\"", "'"));
 			
 			int size = 0;
 			

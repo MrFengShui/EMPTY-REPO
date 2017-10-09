@@ -159,6 +159,156 @@ function close_tabbed_panel(event) {
 	}
 }
 
+function Pagination(min, max) {
+	
+	var buttons = document.getElementsByClassName('pagination-button');
+	var re = /(page-(top|bottom))-(\d+)(-selected)?/i;
+	
+	this.min = min;
+	this.max = max;
+	
+	this.hideContent = function() {
+		var contents = document.getElementsByClassName('pagination-content');
+		
+		if (contents) {
+			for (var i = 0; i < contents.length; i ++) {
+				contents[i].style.display = 'none';
+			}
+		}
+	}
+	
+	this.showSelected = function() {
+		if (buttons) {
+			for (var i = 0; i < buttons.length; i ++) {
+				if (buttons[i].id.endsWith('-selected')) {
+					var obj = re.exec(buttons[i].id);
+					var node = document.getElementById('page-' + obj[3] + '-content');
+					node.style.display = 'block';
+					this.dye(buttons[i]);
+				}
+			}
+		}
+	}
+	
+	this.dye = function(button) {
+		button.style.boxShadow = '0 0 15px rgba(234, 234, 234, 0.25)';
+	}
+	
+	this.clearProperty = function() {
+		if (buttons) {
+			for (var i = 0; i < buttons.length; i ++) {
+				if (buttons[i].id.endsWith('-selected')) {
+					var index = buttons[i].id.indexOf('-selected');
+					buttons[i].id = buttons[i].id.substr(0, index);
+					buttons[i].style.boxShadow = 'none';
+				}
+			}
+		}
+	}
+	
+	this.edgeSwitch = function(flag) {
+		this.clearProperty();
+		this.hideContent();
+		
+		switch (flag) {
+			case 'head':
+				num = this.min;
+				break;
+			case 'foot':
+				num = this.max;
+				break;
+		}
+		
+		this.freeSwitch(num);
+	}
+	
+	this.stepSwitch = function(flag) {
+		if (buttons) {
+			for (var i = 0; i < buttons.length; i ++) {
+				if (buttons[i].id.endsWith('-selected')) {
+					var obj = re.exec(buttons[i].id);
+					num = parseInt(obj[3], 10);
+					
+					switch (flag) {
+						case 'next':
+							if (num < this.max) { num ++; }
+							break;
+						case 'previous':
+							if (num > this.min) { num --; }
+							break;
+					}
+					
+					break;
+				}
+			}
+			
+			this.freeSwitch(num);
+		}
+	}
+	
+	this.freeSwitch = function(id) {
+		var buttons = [
+			document.getElementById('page-top-' + id),
+			document.getElementById('page-bottom-' + id)
+		];
+		this.clearProperty();
+		this.hideContent();
+		
+		for (var i = 0; i < buttons.length; i ++) {
+			var obj = re.exec(buttons[i].id);
+			buttons[i].id += '-selected';
+			var node = document.getElementById('page-' + obj[3] + '-content');
+			node.style.display = 'block';
+			this.dye(buttons[i]);
+		}
+	}
+	
+	this.switchPage = function(event) {
+		var button = (event.target.nodeName == 'I') 
+					? event.target.parentNode 
+					: event.target;
+		var obj = re.exec(button.id);
+		
+		if (button) {
+			switch (button.id) {
+				case 'page-top-head':
+				case 'page-bottom-head':
+					pagination.edgeSwitch('head');
+					break;
+				case 'page-top-previous':
+				case 'page-bottom-previous':
+					pagination.stepSwitch('previous');
+					break;
+				case 'page-top-next':
+				case 'page-bottom-next':
+					pagination.stepSwitch('next');				
+					break;
+				case 'page-top-foot':
+				case 'page-bottom-foot':
+					pagination.edgeSwitch('foot');
+					break;
+				default:
+					pagination.freeSwitch(obj[3]);
+					break;
+			}
+		}
+	}
+	
+	this.listen = function() {
+		if (buttons) {
+			for (var i = 0; i < buttons.length; i ++) {
+				buttons[i].addEventListener('click', this.switchPage);
+			}
+		}
+	}
+	
+}
+
+function show_pagination(min, max) {
+	pagination = new Pagination(min, max);
+	pagination.showSelected();
+}
+
 window.addEventListener('DOMContentLoaded', function(event) {
 	var tabbedTitles = document.querySelectorAll('.tabbed-panel-item span');
 	
@@ -201,4 +351,6 @@ window.addEventListener('DOMContentLoaded', function(event) {
 					split_panel_vertical_move);
 		}
 	}
+	
+	pagination.listen();
 });

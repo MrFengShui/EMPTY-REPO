@@ -62,13 +62,10 @@
 				<form:label path="confirmPassword" class="medium-text-font">CONFIRM PASSWORD</form:label>
 				<form:password path="confirmPassword"/>
 			</div>			
-			<div class="section-form-cell" style="height: auto;">
-				<textarea class="medium-border small-text-font" style="height: 360px;" readonly>${contract}</textarea>
-			</div>			
 			<div class="section-form-cell">
 				<form:label path="agree" class="medium-text-font" style="width: 100%;">
 					<form:checkbox path="agree" value="true" style="width: 50px;"/>
-					I have read and agreed this agreement.
+					I have read and agreed this <a class="link" href="#" onclick="modal_dialog_show();">agreement</a>.
 				</form:label>
 			</div>
 			<div class="section-form-cell"><form:button class="medium-text-font" style="height: 50px;">REGISTER</form:button></div>
@@ -76,5 +73,17 @@
 	</div>
 	<div class="page-footer"><span class="medium-text-font div-center-center">Luan Songjian Copyright 2017-08-13</span></div>
 </div>
+<div class="modal-dialog-backbone">
+	<div class="modal-dialog-head">
+		<header class="modal-dialog-title big-header-font div-left-center">SampleWeb Registering Agreement</header>			
+		<button class="modal-close-button big-text-font" onclick="modal_dialog_hide();">
+			<i class="fa fa-close" aria-hidden="true"></i>
+		</button>
+	</div>
+	<div class="modal-dialog-body">
+		<textarea class="textarea medium-border-negative small-text-font" style="height: 800px;" readonly>${contract}</textarea>
+	</div>
+</div>
 </body>
+<script src="js/window.js" type="text/javascript"></script>
 </html>

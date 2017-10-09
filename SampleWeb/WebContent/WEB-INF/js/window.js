@@ -8,6 +8,26 @@ function close_alert_dialog(event) {
 	}
 }
 
+function modal_dialog_show() {
+	var backbones = document.getElementsByClassName('modal-dialog-backbone');
+	
+	if (backbones) {
+		for (var i = 0; i < backbones.length; i ++) {
+			backbones[i].style.display = 'block';
+		}
+	}
+}
+
+function modal_dialog_hide() {
+	var backbones = document.getElementsByClassName('modal-dialog-backbone');
+	
+	if (backbones) {
+		for (var i = 0; i < backbones.length; i ++) {
+			backbones[i].style.display = 'none';
+		}
+	}
+}
+
 window.addEventListener('DOMContentLoaded', function(event) {
 	var closeButtons = document.querySelectorAll('.alert-dialog-head button');
 	
